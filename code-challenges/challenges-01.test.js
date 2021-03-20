@@ -1,6 +1,6 @@
 'use strict';
 
-/* -----------------------------------------------------------------------------------------------
+/* -------------------------------------------------------------------------------------------
 CHALLENGE 1
 
 Write a function named `addOne` that takes an array of numbers, and returns a new array of the numbers, incremented by 1.
