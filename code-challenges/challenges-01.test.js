@@ -160,6 +160,20 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  answer = [];
+  arr.forEach(value => {
+    if (value % 3 === 0 && value % 5 === 0){
+      answer.push('Fizz Buzz');
+    } else if (value % 5 === 0) {
+      answer.push('Buzz');
+    } else if (value % 3 === 0){
+      answer.push('Fizz');
+    } else {
+      answer.push(value);
+    };
+  });
+
+  return answer
 };
 
 /* ------------------------------------------------------------------------------------------------
