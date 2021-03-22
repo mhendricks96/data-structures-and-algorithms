@@ -170,13 +170,13 @@ const fizzbuzz = (arr) => {
       answer.push('Fizz');
     } else {
       answer.push(value);
-    };
+    }
   });
 
   return answer
 };
 
-/* ------------------------------------------------------------------------------------------------
+/* ---------------------------------------------------------------------------------------------
 TESTS
 
 All the code below will verify that your functions are working to solve the challenges.
