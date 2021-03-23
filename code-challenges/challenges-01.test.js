@@ -11,7 +11,7 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 const addOne = (arr) => {
   const answer = [];
   // forEach loop over input
-  arr.forEach((value, i) => {
+  arr.forEach((value) => {
     answer.push(value + 1);
   });
   //push new value into array
@@ -30,8 +30,8 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 const addExclamation = (arr) => {
   const answer = [];
   // forEach loop over input
-  arr.forEach( function(value, i) {
-    answer.push(`${value}!`);
+  arr.forEach((str) => {
+    answer.push(`${str}!`);
   });
   //push new value into array
   //return
@@ -49,9 +49,7 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 const allUpperCase = (arr) => {
   const answer = [];
   // forEach loop over input
-  arr.forEach((value, i) => {
-    answer.push(value.toUpperCase());
-  });
+  arr.forEach(str => answer.push(str.toUpperCase()));
   //push new value into array
   //return
   return answer;
@@ -75,9 +73,9 @@ const greeting = (word) => {
 const speaker = (words, callback) => {
   const answer = [];
   //loop over each string in array
-  words.forEach((value) => {
+  words.forEach((str) => {
     //push new strings into array using function
-    answer.push(callback(value));
+    answer.push(callback(str));
   });
 
 
@@ -137,7 +135,7 @@ const createList = (availableItems) => {
   // forEach loop over the arrays
   availableItems.forEach(item => {
     //push available items into shoppinList Array
-    if (item.available === true) {
+    if (item.available) {
       shoppingList.push(item.name);
     }
   });
@@ -173,7 +171,7 @@ const fizzbuzz = (arr) => {
     }
   });
 
-  return answer
+  return answer;
 };
 
 /* ---------------------------------------------------------------------------------------------
