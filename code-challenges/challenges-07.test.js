@@ -1,7 +1,7 @@
 'use strict';
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 1 - Review
+CHALLENGE 1 - Review DO NOT DO
 
 Write a function named replaceZeros that, given a string, uses Regex to replace all '0' with the word 'zero'. 
 ------------------------------------------------------------------------------------------------ */
@@ -17,8 +17,12 @@ Write a function named addOne that, given an array of numbers, uses map to retur
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  // Solution code here...
-}
+  // Solution code here..
+  let newArray = arr.map((value) => {
+    return value + 1;
+  });
+  return(newArray);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -28,7 +32,11 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 
 const addQuestion = (arr) => {
   // Solution code here...
-}
+  let newArray = arr.map((str) => {
+    return `${str}?`;
+  });
+  return (newArray);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -42,26 +50,41 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 
 const forLoopTwoToThe = (arr) => {
   // Solution code here...
+  let answer = [];
+  for (let i = 0; i < arr.length; i++){
+    answer.push(Math.pow(2, arr[i]));
+  }
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1, but uses forEach instead of a for loop.
+Write a function named forEachTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4, but uses forEach instead of a for loop.
 ------------------------------------------------------------------------------------------------ */
-
+//used Math. to solve this
 const forEachTwoToThe = (arr) => {
   // Solution code here...
+  let answer = [];
+  arr.forEach((value) => {
+    answer.push(Math.pow(2, value));
+  });
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
+Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4 and your forEachTwoToThe function from challenge 5, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
   // Solution code here...
+  let answer = [];
+  arr.map((value) => {
+    answer.push(Math.pow(2, value));
+  });
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +113,17 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = (arr) => {
   // Solution code here...
+  let answer = [];
+  arr.map(number => {
+    if((number % 1) !==0){
+      answer.push('N/A');
+    } else if(number % 2 === 0){
+      answer.push('even');
+    }else{
+      answer.push('odd');
+    }
+  });
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -183,6 +217,7 @@ const snorlaxStats = {
 
 const extractStats = (arr) => {
   // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -254,7 +289,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return an array containing the keys from an object', () => {
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([ 'odd', 'even', 'even', 'even', 'odd', 'odd', 'even', 'odd' ]);
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541]).length).toStrictEqual(8);
