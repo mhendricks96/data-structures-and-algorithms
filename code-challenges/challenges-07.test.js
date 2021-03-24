@@ -17,8 +17,12 @@ Write a function named addOne that, given an array of numbers, uses map to retur
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  // Solution code here...
-}
+  // Solution code here..
+  let newArray = arr.map((value) => {
+    return value+ 1;
+  });
+  return(newArray);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
