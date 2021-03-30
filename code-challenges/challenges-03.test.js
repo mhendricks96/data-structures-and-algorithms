@@ -9,7 +9,7 @@ Write a function called addTwo that takes in an array and adds two to every valu
 const addTwo = (arr) => {
   // Solution
   let newArray = [];
-  arr.forEach((number, i) => {
+  arr.forEach((number) => {
     newArray.push(number + 2);
   });
   return(newArray);
@@ -74,8 +74,9 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
   let inCommon = arr.filter((number) => {
-    return
-  })
+    return !forbiddenValues.includes(number);
+  });
+  return inCommon;
 };
 
 /* ------------------------------------------------------------------------------------------------
