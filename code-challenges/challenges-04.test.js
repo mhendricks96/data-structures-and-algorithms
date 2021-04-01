@@ -46,7 +46,7 @@ const updateAnimal = (arr, callback) => {
 
   let newArray = [];
   arr.forEach((str) => {
-    newArray.push(str.callback);
+    newArray.push(callback(str));
   });
   return newArray;
 };
