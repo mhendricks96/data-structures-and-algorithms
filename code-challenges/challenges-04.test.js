@@ -168,8 +168,15 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => {
+    if (a.length < b.length){
+      return -1;
+    }else{
+      return 1;
+    }
+  });
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
@@ -202,7 +209,16 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  arr.sort((a,b)=> {
+    if (a.lastName < b.lastName){
+      return -1;
+    }else{
+      return 1;
+    }
+  });
+  return arr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
@@ -216,6 +232,30 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => {
+    if (a.lastName < b.lastName){
+      return -1;
+    }else if (a.lastName > b.lastName){
+      return 1;
+    } else {
+      arr.sort((a,b) => {
+        if (a.firstName < b.firstName){
+          return -1;
+        } else if (a.firstName > b.firstName){
+          return 1;
+        } else {
+          arr.sort((a,b) => {
+            if (a.age < b.age){
+              return -1;
+            } else {
+              return 1;
+            }
+          });
+        }
+      });
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -337,7 +377,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should sort strings by length', () => {
     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
@@ -356,7 +396,7 @@ xdescribe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort people by their last names', () => {
     expect(sortPeople(people)).toStrictEqual([
       new Person('Casey', 'Codefellow', 38),
