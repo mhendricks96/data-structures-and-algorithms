@@ -44,11 +44,15 @@ function lower(str) {
 const updateAnimal = (arr, callback) => {
   // Solution code here...
 
-  let newArray = [];
-  arr.forEach((str) => {
-    newArray.push(callback(str));
-  });
-  return newArray;
+  //let newArray = [];
+  //arr.forEach((str) => {
+  //newArray.push(callback(str));
+  //});
+  //return newArray;
+
+  //OR
+
+  return arr.map(callback);
 };
 
 /* ------------------------------------------------------------------------------------------------
