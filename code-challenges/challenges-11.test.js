@@ -38,15 +38,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  let array = [];
+  let counterArray = [];
   input.map((i) => {
     i.map((j) => {
-      if(j === target){
-        array.push(1);
+      if (j === target) {
+        counterArray.push(1);
       }
     });
   });
-  return array.length;
+  return counterArray.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,6 +61,13 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let total = 0;
+  input.map((i) => {
+    i.map((j) => {
+      total = j + total;
+    });
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,6 +84,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+
+  let answer = []
+  for (let i = 0; i < input.length; i++) {
+    let inside = input[i];
+    answer.push(inside.filter(num => ((num % 5 === 0) && typeof (num) === 'number')).map(num => Math.pow(2, num)));
+  }
+  return answer;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,6 +157,7 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.filter((character) => character.gender === 'male' ||character.gender === 'female').map((char) => char.name).join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -153,6 +168,8 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  let answer = data.filter( character => character.height).reduce((a, b) => (b.height > a.height ? b : a));
+  return answer.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
