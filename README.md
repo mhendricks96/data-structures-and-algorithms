@@ -13,10 +13,10 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 ### 401 Data Structures, Code Challenges
 
 # Reverse an Array
-<!-- Description of the challenge -->
+Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![Python Code Challenge 1](https://user-images.githubusercontent.com/75649765/121122214-e04c7280-c7d5-11eb-97bb-9d1a292966cd.png)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
+we used a while loop to iterate through our array and return the last index to new array
