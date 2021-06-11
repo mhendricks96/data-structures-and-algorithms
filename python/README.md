@@ -94,7 +94,7 @@ Write a function called insertShiftArray which takes in an array and a value to 
 
 ### Whiteboard Process
 
-![Python Code Challenge 1](https://jamboard.google.com/d/1teQ0IVzRIH8HeR-fMbuKMLnNmGpPxAXc3p4YrMmdAwk/edit?usp=sharing)
+![Python Code Challenge 1](https://user-images.githubusercontent.com/75649765/121751465-0c604000-cac3-11eb-9b3b-d15faeb52395.png)
 
 ### Approach & Efficiency
 
