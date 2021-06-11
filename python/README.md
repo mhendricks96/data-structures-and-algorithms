@@ -74,3 +74,28 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 - **Run every possible test** - `pytest`
 - **Run filtered tests** - `pytest -k some_filter_text`
 - **Run in watch mode** - `ptw` or `pytest-watch`
+
+
+## Reverse an Array
+
+Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
+
+### Whiteboard Process
+
+![Python Code Challenge 1](https://user-images.githubusercontent.com/75649765/121122214-e04c7280-c7d5-11eb-97bb-9d1a292966cd.png)
+
+### Approach & Efficiency
+
+we used a while loop to iterate through our array and return the last index to new array
+
+## Insert to Middle of an Array
+
+Write a function called insertShiftArray which takes in an array and a value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
+
+### Whiteboard Process
+
+![Python Code Challenge 1](https://jamboard.google.com/d/1teQ0IVzRIH8HeR-fMbuKMLnNmGpPxAXc3p4YrMmdAwk/edit?usp=sharing)
+
+### Approach & Efficiency
+
+divided the len of the list by 2 to get the middle index and inserted the inputed calue there.
