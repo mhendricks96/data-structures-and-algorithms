@@ -99,3 +99,13 @@ Write a function called insertShiftArray which takes in an array and a value to 
 ### Approach & Efficiency
 
 divided the len of the list by 2 to get the middle index and inserted the inputed calue there.
+
+## Binary Search of Sorted Array
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the value of the search key, or -1 if the element is not in the array.
+
+### Whiteboard Process
+
+![Python Code Challenge 3](https://github.com/mhendricks96/data-structures-and-algorithms/files/6652669/challenge.3.whiteboard.pdf)
+
+### Approach & Efficiency
+using a recursive function awe found the middle of the list that compared that value to out key to decide which side of the list to contue our function on
