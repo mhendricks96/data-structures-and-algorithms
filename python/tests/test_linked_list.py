@@ -51,5 +51,5 @@ def test_includes():
 def test_str():
     my_list = LinkedList(Node('a', Node('b', Node('c'))))
     actual = my_list.__str__()
-    expected = "{ a } -> { b } -> { c } -> NULL"
+    expected = "{'a'} -> {'b'} -> {'c'} -> NULL"
     assert actual == expected

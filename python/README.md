@@ -75,37 +75,58 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 - **Run filtered tests** - `pytest -k some_filter_text`
 - **Run in watch mode** - `ptw` or `pytest-watch`
 
-
-## Reverse an Array
+## Reverse an List
 
 Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
-### Whiteboard Process
+### Whiteboard Process for reverse List
 
 ![Python Code Challenge 1](https://user-images.githubusercontent.com/75649765/121122214-e04c7280-c7d5-11eb-97bb-9d1a292966cd.png)
 
-### Approach & Efficiency
+### Approach & Efficiency for reverse list
 
 we used a while loop to iterate through our array and return the last index to new array
 
-## Insert to Middle of an Array
+## Insert to Middle of an list
 
 Write a function called insertShiftArray which takes in an array and a value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 
-### Whiteboard Process
+### Whiteboard Process for insert to middle of list
 
 ![Python Code Challenge 1](https://user-images.githubusercontent.com/75649765/121751465-0c604000-cac3-11eb-9b3b-d15faeb52395.png)
 
-### Approach & Efficiency
+### Approach & Efficiency for insert to middle
 
 divided the len of the list by 2 to get the middle index and inserted the inputed calue there.
 
 ## Binary Search of Sorted Array
+
 Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the value of the search key, or -1 if the element is not in the array.
 
-### Whiteboard Process
+### Whiteboard Process for binary search
 
 ![Python Code Challenge 3](https://github.com/mhendricks96/data-structures-and-algorithms/files/6652669/challenge.3.whiteboard.pdf)
 
-### Approach & Efficiency
+### Approach & Efficiency for binary search
+
 using a recursive function awe found the middle of the list that compared that value to out key to decide which side of the list to contue our function on
+
+## Singly Linked List
+
+Using functions to create a singly linked list full of custom nodes
+
+### Singly Linked List Challenge
+
+Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
+Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+Define a method called toString (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
+"{ a } -> { b } -> { c } -> NULL"
+
+### Approach & Efficiency for singly linke lists
+
+used test driven development to full linked list class with functions
+
+## API
+<!-- Description of each method publicly available to your Linked List -->

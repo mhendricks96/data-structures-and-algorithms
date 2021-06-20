@@ -6,16 +6,22 @@ class Node:
 
 class LinkedList:
     """
-    Put docstring here
-
-    "{ a } -> { b } -> { c } -> NULL"
+    creating a new Linked List with a head property
     """
 
     def __init__(self, head=None):
         self.head = head
 
     def __str__(self):
-        return f"{ self.head.value } -> { self.head.next.value } -> { self.head.next.next.value } -> NULL"
+        string = ""
+        current = self.head
+        while current is not None:
+            string += f"{ {current.value} } -> "
+            current = current.next
+
+        string += f"NULL"
+        return string
+        
 
     def insert(self, value):
         """
