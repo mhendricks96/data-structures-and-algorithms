@@ -141,8 +141,11 @@ Write the following methods for the Linked List class:
 
 ### Whiteboard Process
 
+![Screen Shot 2021-06-21 at 10 17 05 PM 2](https://user-images.githubusercontent.com/75649765/122870320-5d9dda00-d2e2-11eb-8808-561f3c0a64dd.png)
 
 ### Approach & Efficiency
 
 traversed through linked list and changed pointers to insert new values.
+
+Collaborated with Marie Marcos
 
