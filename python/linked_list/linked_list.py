@@ -34,6 +34,43 @@ class LinkedList:
         self.head = node
 
 
+    def append_to_end(self, value):
+       new_node = Node(value)
+       current = self.head
+       if current is None:
+          current = new_node
+       else:
+          while current.next is not None:
+             current = current.next
+          current.next = new_node
+
+    def append_after_value(self, value, new_value):
+        current = self.head
+        while current.next is not None:
+            if value == current.value:
+                break
+            current = current.next
+        if current is None:
+            print("cant find it")
+        else:
+            new_node = Node(new_value)
+            new_node.next = current.next
+            current.next = new_node 
+        
+    def append_before_value(self, value, new_value):
+        current = self.head
+        while current.next is not None:
+            if value == current.next.value:
+                break
+            current = current.next
+        if current is None:
+            print("cant find it")
+        else:
+            new_node = Node(new_value)
+            new_node.next = current.next
+            current.next = new_node 
+    
+    
     def includes(self, key):
         """
         returns a boolean depending on whether value exists in a nodes value somewhere in the list

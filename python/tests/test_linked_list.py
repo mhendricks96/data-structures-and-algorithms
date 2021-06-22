@@ -53,3 +53,24 @@ def test_str():
     actual = my_list.__str__()
     expected = "{'a'} -> {'b'} -> {'c'} -> NULL"
     assert actual == expected
+
+def test_append_to_end():
+    my_list = LinkedList(Node('a', Node('b', Node('c'))))
+    my_list.append_to_end('d')
+    actual = my_list.__str__()
+    expected = "{'a'} -> {'b'} -> {'c'} -> {'d'} -> NULL"
+    assert actual == expected
+
+def test_append_after_value():
+    my_list = LinkedList(Node('a', Node('b', Node('c'))))
+    my_list.append_after_value('b','d')
+    actual = my_list.__str__()
+    expected = "{'a'} -> {'b'} -> {'d'} -> {'c'} -> NULL"
+    assert actual == expected
+
+def test_append_before_value():
+    my_list = LinkedList(Node('a', Node('b', Node('c'))))
+    my_list.append_before_value('b','d')
+    actual = my_list.__str__()
+    expected = "{'a'} -> {'d'} -> {'b'} -> {'c'} -> NULL"
+    assert actual == expected
