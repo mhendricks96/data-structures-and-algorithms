@@ -128,5 +128,21 @@ Define a method called toString (or __str__ in Python) which takes in no argumen
 
 used test driven development to full linked list class with functions
 
-## API
-<!-- Description of each method publicly available to your Linked List -->
+
+
+## Challenge Summary for singly lists continued
+
+Write the following methods for the Linked List class:
+
+.append(value) which adds a new node with the given value to the end of the list
+.insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
+.insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
+
+
+### Whiteboard Process
+
+
+### Approach & Efficiency
+
+traversed through linked list and changed pointers to insert new values.
+
