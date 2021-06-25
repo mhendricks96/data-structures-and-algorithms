@@ -74,3 +74,40 @@ def test_append_before_value():
     actual = my_list.__str__()
     expected = "{'a'} -> {'d'} -> {'b'} -> {'c'} -> NULL"
     assert actual == expected
+
+def test_kth_from_end_works():
+    my_list = LinkedList(Node('z',(Node('a', Node('b', Node('c'))))))
+    actual = my_list.kth_from_end(2)
+    expected = 'a'
+    assert actual == expected
+
+def test_kth_from_end_k_too_large():
+    my_list = LinkedList(Node('z',(Node('a', Node('b', Node('c'))))))
+    actual = my_list.kth_from_end(4)
+    expected = 'the list is not that long. choose a smaller number'
+    assert actual == expected
+
+def test_kth_from_end_k_negative():
+    my_list = LinkedList(Node('z',(Node('a', Node('b', Node('c'))))))
+    actual = my_list.kth_from_end(-2)
+    expected = 'what is this calculus? choose a positive number'
+    assert actual == expected
+
+def test_kth_from_end_list_only_1():
+    my_list = LinkedList()
+    my_list.insert('matthew')
+    actual = my_list.kth_from_end(2)
+    expected = 'omg this is embarassing but the list only has 1 item....awkward'
+    assert actual == expected
+
+def test_find_middle_node_even():
+    my_list = LinkedList(Node('z',(Node('a', Node('b', Node('c'))))))
+    actual = my_list.find_middle_node()
+    expected = 'a'
+    assert actual == expected
+
+def test_find_middle_node_odd():
+    my_list = LinkedList(Node('a', Node('b', Node('c'))))
+    actual = my_list.find_middle_node()
+    expected = 'b'
+    assert actual == expected

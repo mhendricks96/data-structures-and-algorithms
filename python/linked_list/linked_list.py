@@ -80,3 +80,45 @@ class LinkedList:
             if current.value == key:
                 return True
             current = current.next
+    
+
+    def kth_from_end(self, k):
+        """
+        takes in an integer and returns the value of the node that many spots from the end of the linked list
+        """
+        
+        length = -1
+        temp = self.head
+        while temp is not None:
+            temp = temp.next
+            length += 1
+        if length < 2:
+            return 'omg this is embarassing but the list only has 1 item....awkward'
+        elif k < 0:
+            return 'what is this calculus? choose a positive number'
+        elif k >= length:
+            return 'the list is not that long. choose a smaller number'
+        else:
+            temp = self.head
+            target = length - k
+            for i in range(0, target):
+                temp = temp.next
+            return temp.value
+
+    def find_middle_node(self):
+        """
+        returns the value of the node at the middle voue (rounding down) of the linked list
+        """
+        length = -1
+        temp = self.head
+        while temp is not None:
+            temp = temp.next
+            length += 1
+        if length < 2:
+            return 'omg this is embarassing but the list only has 1 item....awkward'
+        else:
+            temp = self.head
+            target = int(length/2)
+            for i in range(0, target):
+                temp = temp.next
+            return temp.value
