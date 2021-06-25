@@ -124,7 +124,7 @@ Define a method called includes which takes any value as an argument and returns
 Define a method called toString (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
 "{ a } -> { b } -> { c } -> NULL"
 
-### Approach & Efficiency for singly linke lists
+### Approach & Efficiency for singly linked lists
 
 used test driven development to full linked list class with functions
 
@@ -139,13 +139,27 @@ Write the following methods for the Linked List class:
 .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
 
 
-### Whiteboard Process
+### Whiteboard Process for more singly linked lists
 
 ![Screen Shot 2021-06-21 at 10 17 05 PM 2](https://user-images.githubusercontent.com/75649765/122870320-5d9dda00-d2e2-11eb-8808-561f3c0a64dd.png)
 
-### Approach & Efficiency
+### Approach & Efficiency for more singly linked lists
 
 traversed through linked list and changed pointers to insert new values.
 
 Collaborated with Marie Marcos
 
+## Challenge Summary for code challenge 7
+
+write a function that takes in a integer(k) as an argument and returns the node's value that is k places from the end of a linked list
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+
+## Approach & Efficiency for code challenge 7
+
+taversed through the linked list to find the length, then subtracted the inputed number from the length to figure out which node was to be returned 
+
+## Solution
+
+[link to function](python/linked_list/linked_list.py)
