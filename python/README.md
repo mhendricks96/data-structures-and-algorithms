@@ -138,7 +138,6 @@ Write the following methods for the Linked List class:
 .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
 .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
 
-
 ### Whiteboard Process for more singly linked lists
 
 ![Screen Shot 2021-06-21 at 10 17 05 PM 2](https://user-images.githubusercontent.com/75649765/122870320-5d9dda00-d2e2-11eb-8808-561f3c0a64dd.png)
@@ -153,13 +152,14 @@ Collaborated with Marie Marcos
 
 write a function that takes in a integer(k) as an argument and returns the node's value that is k places from the end of a linked list
 
-## Whiteboard Process
-<!-- Embedded whiteboard image -->
+### Whiteboard Process for code challenge 7
 
-## Approach & Efficiency for code challenge 7
+![challenge 7 whiteboard](https://user-images.githubusercontent.com/75649765/123350825-a1762680-d510-11eb-82e6-08b6443806e8.png)
+
+### Approach & Efficiency for code challenge 7
 
 taversed through the linked list to find the length, then subtracted the inputed number from the length to figure out which node was to be returned 
 
-## Solution
+### Solution
 
 [link to function](python/linked_list/linked_list.py)
