@@ -14,8 +14,6 @@ def test_empty_list():
     my_list = LinkedList()
     assert my_list
 
-
-
 def test_insert():
     my_list = LinkedList()
     my_list.insert('apples')
@@ -30,7 +28,6 @@ def test_head():
     actual = my_list.head.value
     expected = 'tulip'
     assert actual == expected
-
 
 def test_multiple():
     my_list = LinkedList()
@@ -51,13 +48,17 @@ def test_includes():
 def test_str():
     my_list = LinkedList(Node('a', Node('b', Node('c'))))
     actual = my_list.__str__()
+    # OR
+    #actual = my_list.__str__()
     expected = "{'a'} -> {'b'} -> {'c'} -> NULL"
     assert actual == expected
 
 def test_append_to_end():
     my_list = LinkedList(Node('a', Node('b', Node('c'))))
     my_list.append_to_end('d')
-    actual = my_list.__str__()
+    #both of these work
+    #actual = my_list.__str__()
+    actual = str(my_list)
     expected = "{'a'} -> {'b'} -> {'c'} -> {'d'} -> NULL"
     assert actual == expected
 
