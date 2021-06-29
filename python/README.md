@@ -163,3 +163,18 @@ taversed through the linked list to find the length, then subtracted the inputed
 ### Solution
 
 [link to function](python/linked_list/linked_list.py)
+
+## Challenge Summary for code challenge 8
+
+Write a function called zip lists, that takes in two linked lists as arguments and returns a linked list zipped. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list
+
+### Whiteboard Process for code challenge 7
+
+![challenge 8 whiteboard](https://github.com/mhendricks96/data-structures-and-algorithms/files/6730914/linked-list-zip.pdf)
+
+### Approach & Efficiency for code challenge 7
+
+used pointers to switch between lists
+### Solution
+
+[link to function](python/linked_list/linked_list.py)
