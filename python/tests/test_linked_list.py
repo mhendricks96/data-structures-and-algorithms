@@ -1,4 +1,4 @@
-from linked_list.linked_list import LinkedList, Node
+from linked_list.linked_list import LinkedList, Node, zipped_list
 
 
 def test_import():
@@ -111,4 +111,13 @@ def test_find_middle_node_odd():
     my_list = LinkedList(Node('a', Node('b', Node('c'))))
     actual = my_list.find_middle_node()
     expected = 'b'
+    assert actual == expected
+
+
+def test_zipped_list():
+    ll1 = LinkedList(Node('a', Node('b', Node('c'))))
+    ll2 = LinkedList(Node('1', Node('2', Node('3'))))
+    zipped_list(ll1,ll2)
+    actual = ll1.__str__()
+    expected = "{'a'} -> {'1'} -> {'b'} -> {'2'} -> {'c'} -> {'3'} -> NULL"
     assert actual == expected
