@@ -1,4 +1,4 @@
-from linked_list.linked_list import LinkedList, Node, zipped_list, merge_sorted_list
+from linked_list.linked_list import LinkedList, Node, zipped_list#, merge_sorted_list
 
 
 def test_import():
