@@ -1,4 +1,4 @@
-from linked_list.linked_list import LinkedList, Node, zipped_list
+from linked_list.linked_list import LinkedList, Node, zipped_list, merge_sorted_list
 
 
 def test_import():
@@ -121,3 +121,13 @@ def test_zipped_list():
     actual = ll1.__str__()
     expected = "{'a'} -> {'1'} -> {'b'} -> {'2'} -> {'c'} -> {'3'} -> NULL"
     assert actual == expected
+
+# def test_merge_sorted_list():
+#     ll1 = LinkedList()
+#     ll1.insert(1)
+#     ll1.insert(2)
+#     ll1.insert(3)
+#     ll2 = LinkedList(Node(2, Node(4, Node(6))))
+#     actual = merge_sorted_list(ll1,ll2)
+#     expected = "{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> NULL"
+#     assert actual == expected
