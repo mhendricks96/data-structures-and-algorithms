@@ -1,4 +1,4 @@
-from linked_list.linked_list import LinkedList, Node, zipped_list#, merge_sorted_list
+from linked_list.linked_list import LinkedList, Node, zipped_list, LL_Stack, LL_Queue#, isEmptyError#, merge_sorted_list
 
 
 def test_import():
@@ -131,3 +131,125 @@ def test_zipped_list():
 #     actual = merge_sorted_list(ll1,ll2)
 #     expected = "{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> NULL"
 #     assert actual == expected
+
+# Linked List Stack Tests
+
+def test_create_empty_stack():
+    my_stack = LL_Stack()
+    actual = len(my_stack)
+    expected = 0
+    assert actual == expected
+
+def test_push_one_into_stack():
+    my_stack = LL_Stack()
+    my_stack.push("yea, mike")
+    actual = len(my_stack)
+    expected = 1
+    assert actual == expected
+
+def test_push_three_into_stack():
+    my_stack = LL_Stack()
+    my_stack.push("yea, mike")
+    my_stack.push("happy 4th!")
+    my_stack.push(15)
+    actual = len(my_stack)
+    expected = 3
+    assert actual == expected
+
+def test_pop_1_from_stack():
+    my_stack = LL_Stack()
+    my_stack.push("yea, mike")
+    my_stack.push("happy 4th!")
+    my_stack.push(15)
+    my_stack.pop()
+    actual = len(my_stack)
+    expected = 2
+    assert actual == expected
+
+def test_pop_all_from_stack():
+    my_stack = LL_Stack()
+    my_stack.push("yea, mike")
+    my_stack.push("happy 4th!")
+    my_stack.push(15)
+    my_stack.pop()
+    my_stack.pop()
+    my_stack.pop()
+    actual = len(my_stack)
+    expected = 0
+    assert actual == expected
+
+def test_peek_into_stack():
+    my_stack = LL_Stack()
+    my_stack.push("yea, mike")
+    my_stack.push("happy 4th!")
+    my_stack.push(15)
+    actual = my_stack.peek()
+    expected = 15
+    assert actual == expected
+
+def test_empty_exception_in_stack():
+    my_stack = LL_Stack()
+    actual = my_stack.peek()
+    expected = "Sorry, the stack is empty"
+    assert actual == expected
+
+
+# Linked List Queue Tests
+
+def test_create_empty_queue():
+    my_queue = LL_Queue()
+    actual = len(my_queue)
+    expected = 0
+    assert actual == expected
+
+def test_enqueue_one():
+    my_queue = LL_Queue()
+    my_queue.enqueue("yea, mike")
+    actual = len(my_queue)
+    expected = 1
+    assert actual == expected
+
+def test_enqueue_three():
+    my_queue = LL_Queue()
+    my_queue.enqueue("yea, mike")
+    my_queue.enqueue("hola, miguel")
+    my_queue.enqueue("bonjuer, mike")
+    actual = len(my_queue)
+    expected = 3
+    assert actual == expected
+
+def test_dequeue_one():
+    my_queue = LL_Queue()
+    my_queue.enqueue(22)
+    my_queue.enqueue(77)
+    my_queue.dequeue()
+    actual = len(my_queue)
+    expected = 1
+    assert actual == expected
+
+def test_dequeue_all():
+    my_queue = LL_Queue()
+    my_queue.enqueue(22)
+    my_queue.enqueue(77)
+    my_queue.enqueue("codefellows")
+    my_queue.dequeue()
+    my_queue.dequeue()
+    my_queue.dequeue()
+    actual = len(my_queue)
+    expected = 0
+    assert actual == expected
+
+def test_peek_into_queue():
+    my_queue = LL_Queue()
+    my_queue.enqueue(22)
+    my_queue.enqueue(77)
+    my_queue.enqueue("codefellows")
+    actual = my_queue.peek()
+    expected = 22
+    assert actual == expected
+
+def test_empty_exception_in_queue():
+    my_queue = LL_Queue()
+    actual = my_queue.dequeue()
+    expected = "Sorry, the queue is empty"
+    assert actual == expected
