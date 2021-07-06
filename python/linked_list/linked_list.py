@@ -168,3 +168,94 @@ def zipped_list(list1, list2):
 #         current2.next = merge_sorted_list(current2.next, list1)
 #         return list2
 
+## Linked List Stack
+
+#class isEmptyError(Exception):
+    #pass
+
+class LL_Stack:
+    
+    class Node:
+        def __init__(self, value, next=None):
+            self.value = value
+            self.next = next
+
+    def __init__(self, top=None):
+        self.top = top
+        self.stack_size = 0
+
+    def __len__(self):
+        return self.stack_size
+
+    def is_empty(self):
+        #Shorthand
+        #return self.stack_size == 0
+        if self.stack_size == 0:
+            return True
+        else:
+            return False
+
+    def peek(self):
+        if self.is_empty():
+            return ("Sorry, the stack is empty")
+        return self.top.value
+    
+    def push(self, value):
+        self.top = self.Node(value, self.top)
+        self.stack_size += 1
+
+    def pop(self):
+        if self.is_empty():# is True:
+            return ("Sorry, the stack is empty")
+        
+        popped = self.top.value
+        self.top = self.top.next
+        self.stack_size -= 1
+        return popped
+
+
+
+# Linked List Queue
+
+class LL_Queue:
+    class Node:
+        def __init__(self, value, next=None):
+            self.value = value
+            self.next = next
+    
+    def __init__(self, front=None, rear=None):
+        self.front = front
+        self.rear = rear
+        self.queue_size = 0
+
+    def __len__(self):
+        return self.queue_size
+
+    def is_empty(self):
+        #Shorthand
+        return self.queue_size == 0
+        # if self.stack_size == 0:
+        #     return True
+        # else:
+        #     return False
+
+    def peek(self):
+        if self.is_empty():
+            return ("Sorry, the queue is empty")
+        return self.front.value
+
+    def enqueue(self, value):
+        new_node = self.Node(value)
+        if self.is_empty():
+            self.front = new_node
+        else:
+            self.rear.next = new_node
+        self.rear = new_node
+        self.queue_size += 1
+
+    def dequeue(self):
+        if self.is_empty():
+            return ("Sorry, the queue is empty")
+        result = self.front.value
+        self.front = self.front.next
+        self.queue_size -= 1
