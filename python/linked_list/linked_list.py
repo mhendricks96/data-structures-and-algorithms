@@ -1,4 +1,7 @@
 class Node:
+    """
+    Created empty node with the next set to none
+    """
     def __init__(self, value, next=None):
         self.value = value
         self.next = next
@@ -35,16 +38,22 @@ class LinkedList:
 
 
     def append_to_end(self, value):
-       new_node = Node(value)
-       current = self.head
-       if current is None:
+        """
+        adds neew node to end of linked list
+        """
+        new_node = Node(value)
+        current = self.head
+        if current is None:
           current = new_node
-       else:
+        else:
           while current.next is not None:
              current = current.next
           current.next = new_node
 
     def append_after_value(self, value, new_value):
+        """
+        adds new node after a given value
+        """
         current = self.head
         while current.next is not None:
             if value == current.value:
@@ -58,6 +67,9 @@ class LinkedList:
             current.next = new_node 
         
     def append_before_value(self, value, new_value):
+        """
+        adds new node before a given value
+        """
         current = self.head
         while current.next is not None:
             if value == current.next.value:
@@ -73,7 +85,7 @@ class LinkedList:
     
     def includes(self, key):
         """
-        returns a boolean depending on whether value exists in a nodes value somewhere in the list
+        returns a boolean depending on whether value exists in a node's value somewhere in the list
         """
         current = self.head
         while current.value is not None:
@@ -174,7 +186,9 @@ def zipped_list(list1, list2):
     #pass
 
 class LL_Stack:
-    
+    """
+    creates a stack based on a linked list
+    """
     class Node:
         def __init__(self, value, next=None):
             self.value = value
@@ -185,9 +199,15 @@ class LL_Stack:
         self.stack_size = 0
 
     def __len__(self):
+        """
+        keeps track of length of stack
+        """
         return self.stack_size
 
     def is_empty(self):
+        """
+        checks to see if stack is empty
+        """
         #Shorthand
         #return self.stack_size == 0
         if self.stack_size == 0:
@@ -196,15 +216,24 @@ class LL_Stack:
             return False
 
     def peek(self):
+        """
+        returns value of node at top of stack
+        """
         if self.is_empty():
             return ("Sorry, the stack is empty")
         return self.top.value
     
     def push(self, value):
+        """
+        adds new node to top of stack
+        """
         self.top = self.Node(value, self.top)
         self.stack_size += 1
 
     def pop(self):
+        """
+        removes top node from stack and returns its value
+        """
         if self.is_empty():# is True:
             return ("Sorry, the stack is empty")
         
@@ -218,6 +247,9 @@ class LL_Stack:
 # Linked List Queue
 
 class LL_Queue:
+    """
+    creates a queue based on a linked list
+    """
     class Node:
         def __init__(self, value, next=None):
             self.value = value
@@ -229,9 +261,15 @@ class LL_Queue:
         self.queue_size = 0
 
     def __len__(self):
+        """
+        keeps tack of length of queue
+        """
         return self.queue_size
 
     def is_empty(self):
+        """
+        checks to see if queue is empty
+        """
         #Shorthand
         return self.queue_size == 0
         # if self.stack_size == 0:
@@ -240,11 +278,17 @@ class LL_Queue:
         #     return False
 
     def peek(self):
+        """
+        returns the value of the front node of the queue
+        """
         if self.is_empty():
             return ("Sorry, the queue is empty")
         return self.front.value
 
     def enqueue(self, value):
+        """
+        adds new node to rear of queue
+        """
         new_node = self.Node(value)
         if self.is_empty():
             self.front = new_node
@@ -254,8 +298,12 @@ class LL_Queue:
         self.queue_size += 1
 
     def dequeue(self):
+        """
+        removes node from front of queue and returns the result
+        """
         if self.is_empty():
             return ("Sorry, the queue is empty")
         result = self.front.value
         self.front = self.front.next
         self.queue_size -= 1
+        return result
