@@ -18,22 +18,22 @@ def zipped_list(list1, list2):
       list2_curr = list2_next
     list2.head = list2_curr
 
-def merge_sorted_list(list1, list2):
+# def merge_sorted_list(list1, list2):
     
-    """
-    function takes in 2 ordered linked lists and returns an ordered link list containing all the nodes from both lists
-    (recursive)
-    """
-    current1 = list1.head
-    current2 = list2.head
-    if current1 is None:
-        return list2
-    if current2 is None:
-        return list1
+#     """
+#     function takes in 2 ordered linked lists and returns an ordered link list containing all the nodes from both lists
+#     (recursive)
+#     """
+#     current1 = list1.head
+#     current2 = list2.head
+#     if current1 is None:
+#         return list2
+#     if current2 is None:
+#         return list1
 
-    if (current1.value < current2.value):
-        current1.next = merge_sorted_list(current1.next, list2)
-        return list1
-    else:
-        current2.next = merge_sorted_list(current2.next, list1)
-        return list2
+#     if (current1.value < current2.value):
+#         current1.next = merge_sorted_list(current1.next, list2)
+#         return list1
+#     else:
+#         current2.next = merge_sorted_list(current2.next, list1)
+#         return list2
