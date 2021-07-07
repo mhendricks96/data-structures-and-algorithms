@@ -6,12 +6,10 @@ class Node:
         self.value = value
         self.next = next
 
-
 class LinkedList:
     """
     creating a new Linked List with a head property
     """
-
     def __init__(self, head=None):
         self.head = head
 
@@ -25,7 +23,6 @@ class LinkedList:
         string += f"NULL"
         return string
         
-
     def insert(self, value):
         """
         adds new node to the head of list
@@ -35,7 +32,6 @@ class LinkedList:
         if self.head is not None:
             node.next = self.head
         self.head = node
-
 
     def append_to_end(self, value):
         """
@@ -82,7 +78,6 @@ class LinkedList:
             new_node.next = current.next
             current.next = new_node 
     
-    
     def includes(self, key):
         """
         returns a boolean depending on whether value exists in a node's value somewhere in the list
@@ -93,12 +88,10 @@ class LinkedList:
                 return True
             current = current.next
     
-
     def kth_from_end(self, k):
         """
         takes in an integer and returns the value of the node that many spots from the end of the linked list
         """
-        
         length = -1
         temp = self.head
         while temp is not None:
@@ -135,175 +128,3 @@ class LinkedList:
                 temp = temp.next
             return temp.value
 
-
-
-def zipped_list(list1, list2):
-    """
-    function takes in 2 linked lists and returns a list with both link lists zippered together
-    """
-    list1_curr = list1.head
-    list2_curr = list2.head
- 
-        
-    while list1_curr != None and list2_curr != None:
- 
-            
-        list1_next = list1_curr.next
-        list2_next = list2_curr.next
- 
-            
-        list2_curr.next = list1_next 
-        list1_curr.next = list2_curr 
- 
-            
-        list1_curr = list1_next
-        list2_curr = list2_next
-    list2.head = list2_curr
-
-# def merge_sorted_list(list1, list2):
-    
-#     """
-#     function takes in 2 ordered linked lists and returns an ordered link list containing all the nodes from both lists
-#     (recursive)
-#     """
-#     current1 = list1.head
-#     current2 = list2.head
-#     if current1 is None:
-#         return list2
-#     if current2 is None:
-#         return list1
-
-#     if (current1.value < current2.value):
-#         current1.next = merge_sorted_list(current1.next, list2)
-#         return list1
-#     else:
-#         current2.next = merge_sorted_list(current2.next, list1)
-#         return list2
-
-## Linked List Stack
-
-#class isEmptyError(Exception):
-    #pass
-
-class LL_Stack:
-    """
-    creates a stack based on a linked list
-    """
-    class Node:
-        def __init__(self, value, next=None):
-            self.value = value
-            self.next = next
-
-    def __init__(self, top=None):
-        self.top = top
-        self.stack_size = 0
-
-    def __len__(self):
-        """
-        keeps track of length of stack
-        """
-        return self.stack_size
-
-    def is_empty(self):
-        """
-        checks to see if stack is empty
-        """
-        #Shorthand
-        #return self.stack_size == 0
-        if self.stack_size == 0:
-            return True
-        else:
-            return False
-
-    def peek(self):
-        """
-        returns value of node at top of stack
-        """
-        if self.is_empty():
-            return ("Sorry, the stack is empty")
-        return self.top.value
-    
-    def push(self, value):
-        """
-        adds new node to top of stack
-        """
-        self.top = self.Node(value, self.top)
-        self.stack_size += 1
-
-    def pop(self):
-        """
-        removes top node from stack and returns its value
-        """
-        if self.is_empty():# is True:
-            return ("Sorry, the stack is empty")
-        
-        popped = self.top.value
-        self.top = self.top.next
-        self.stack_size -= 1
-        return popped
-
-
-
-# Linked List Queue
-
-class LL_Queue:
-    """
-    creates a queue based on a linked list
-    """
-    class Node:
-        def __init__(self, value, next=None):
-            self.value = value
-            self.next = next
-    
-    def __init__(self, front=None, rear=None):
-        self.front = front
-        self.rear = rear
-        self.queue_size = 0
-
-    def __len__(self):
-        """
-        keeps tack of length of queue
-        """
-        return self.queue_size
-
-    def is_empty(self):
-        """
-        checks to see if queue is empty
-        """
-        #Shorthand
-        return self.queue_size == 0
-        # if self.stack_size == 0:
-        #     return True
-        # else:
-        #     return False
-
-    def peek(self):
-        """
-        returns the value of the front node of the queue
-        """
-        if self.is_empty():
-            return ("Sorry, the queue is empty")
-        return self.front.value
-
-    def enqueue(self, value):
-        """
-        adds new node to rear of queue
-        """
-        new_node = self.Node(value)
-        if self.is_empty():
-            self.front = new_node
-        else:
-            self.rear.next = new_node
-        self.rear = new_node
-        self.queue_size += 1
-
-    def dequeue(self):
-        """
-        removes node from front of queue and returns the result
-        """
-        if self.is_empty():
-            return ("Sorry, the queue is empty")
-        result = self.front.value
-        self.front = self.front.next
-        self.queue_size -= 1
-        return result
