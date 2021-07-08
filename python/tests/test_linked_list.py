@@ -5,10 +5,16 @@ def test_import():
     assert LinkedList
 
 def test_node_instance():
-    node = Node('apples',None)
+    node = Node('apples', None)
     actual = node.value
     expected = 'apples'
     assert actual == expected
+
+def test_node_instance_wrong_value():
+    node = Node('apples', None)
+    actual = node.value
+    expected = 'oranges'
+    assert actual != expected
 
 def test_empty_list():
     my_list = LinkedList()
