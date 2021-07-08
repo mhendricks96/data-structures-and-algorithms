@@ -21,19 +21,14 @@ def zipped_list(list1, list2):
 
 class PsuedoQueue:
     """creates  queue from 2 stacks"""
-    def __init__(self):#, front=None, rear=None):
-        # self.front = front
-        # self.rear = rear
+    def __init__(self): 
         self.queue_size = 0
-        # self.in_stack = self.LL_Stack()
-        # self.out_stack = self.LL_Stack()
         self.in_stack = LL_Stack()
         self.out_stack = LL_Stack()
 
     def __len__(self):
         """keeps tack of length of queue"""
         return self.queue_size
-
 
     def enqueue(self, value):
         """adds new node to the top of in_stack"""
@@ -49,20 +44,6 @@ class PsuedoQueue:
         popped = self.out_stack.pop()
         return popped
         
-
- 
-
-
-
-
-
-
-        # if self.is_empty():
-        #     return ("Sorry, the queue is empty")
-        # result = self.front.value
-        # self.front = self.front.next
-        # self.queue_size -= 1
-        # return result
 
 
 # def merge_sorted_list(list1, list2):
