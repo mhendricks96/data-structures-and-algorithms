@@ -6,9 +6,7 @@ from linked_list.linked_list import LinkedList, Node
     #pass
 
 class LL_Stack:
-    """
-    creates a stack based on a linked list
-    """
+    """creates a stack based on a linked list"""
     class Node:
         def __init__(self, value, next=None):
             self.value = value
@@ -19,15 +17,11 @@ class LL_Stack:
         self.stack_size = 0
 
     def __len__(self):
-        """
-        keeps track of length of stack
-        """
+        """keeps track of length of stack"""
         return self.stack_size
 
     def is_empty(self):
-        """
-        checks to see if stack is empty
-        """
+        """checks to see if stack is empty"""
         #Shorthand
         #return self.stack_size == 0
         if self.stack_size == 0:
@@ -36,17 +30,13 @@ class LL_Stack:
             return False
 
     def peek(self):
-        """
-        returns value of node at top of stack
-        """
+        """returns value of node at top of stack"""
         if self.is_empty():
             return ("Sorry, the stack is empty")
         return self.top.value
     
     def push(self, value):
-        """
-        adds new node to top of stack
-        """
+        """adds new node to top of stack"""
         self.top = self.Node(value, self.top)
         self.stack_size += 1
 

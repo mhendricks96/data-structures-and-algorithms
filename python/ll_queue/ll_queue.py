@@ -17,15 +17,11 @@ class LL_Queue:
         self.queue_size = 0
 
     def __len__(self):
-        """
-        keeps tack of length of queue
-        """
+        """keeps tack of length of queue"""
         return self.queue_size
 
     def is_empty(self):
-        """
-        checks to see if queue is empty
-        """
+        """checks to see if queue is empty"""
         #Shorthand
         return self.queue_size == 0
         # if self.stack_size == 0:
@@ -42,9 +38,7 @@ class LL_Queue:
         return self.front.value
 
     def enqueue(self, value):
-        """
-        adds new node to rear of queue
-        """
+        """adds new node to rear of queue"""
         new_node = self.Node(value)
         if self.is_empty():
             self.front = new_node

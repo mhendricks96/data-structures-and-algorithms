@@ -1,7 +1,5 @@
 class Node:
-    """
-    Created empty node with the next set to none
-    """
+    """Created empty node with the next set to none"""
     def __init__(self, value, next=None):
         self.value = value
         self.next = next
@@ -24,9 +22,7 @@ class LinkedList:
         return string
         
     def insert(self, value):
-        """
-        adds new node to the head of list
-        """
+        """adds new node to the head of list"""
         node = Node(value)
 
         if self.head is not None:
@@ -34,9 +30,7 @@ class LinkedList:
         self.head = node
 
     def append_to_end(self, value):
-        """
-        adds neew node to end of linked list
-        """
+        """adds neew node to end of linked list"""
         new_node = Node(value)
         current = self.head
         if current is None:
@@ -47,9 +41,7 @@ class LinkedList:
           current.next = new_node
 
     def append_after_value(self, value, new_value):
-        """
-        adds new node after a given value
-        """
+        """adds new node after a given value"""
         current = self.head
         while current.next is not None:
             if value == current.value:
@@ -63,9 +55,7 @@ class LinkedList:
             current.next = new_node 
         
     def append_before_value(self, value, new_value):
-        """
-        adds new node before a given value
-        """
+        """adds new node before a given value"""
         current = self.head
         while current.next is not None:
             if value == current.next.value:
