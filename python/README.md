@@ -190,3 +190,18 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+## Challenge Summary CC 12
+
+create a first in, first out animal shelter 
+
+### Whiteboard Process
+<!-- Embedded whiteboard image -->
+
+### Approach & Efficiency
+
+traversed through array and returned any node matching the preference. any node that was not matching was added to the end of the queue. after the correct node was found, the queue was rotated to bring the appropriate nodes to the fron
+
+### Solution
+
+[link to function](python/animal_shelter/animal_shelter.py)

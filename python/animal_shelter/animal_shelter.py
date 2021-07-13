@@ -19,6 +19,7 @@ class AnimalShelter:
         self.rear = rear
         self.holding_stack = LL_Stack()
         self.queue_size = 0
+        self.nodes_rotated = 0
 
     def __len__(self):
         """keeps tack of length of queue"""
@@ -44,26 +45,28 @@ class AnimalShelter:
         """
         if self.is_empty():
             return ("Sorry, the queue is empty")
-        #next_up_breed = self.front.value
         next_up = self.front
         
-        while next_up != None:
+        while next_up is not None: 
           if next_up.value == pref:
             x = next_up.value
             next_up = next_up.next
             self.queue_size -= 1
+            times_to_rotate = self.queue_size-self.nodes_rotated
+            for i in range(times_to_rotate):
+              y = next_up.value
+              next_up = next_up.next
+              rotated_node = self.Node(y)
+              self.rear.next = rotated_node
+              self.rear = rotated_node
             return x
           else:
-            return "Null"
-
-
-          next_up = next_up.next
-        
-
-        #else:
-         # return "Null"
-        
-        # if next_up_breed != pref:
-        #   self.front = self.front.next
-        #   self.holding_stack.insert(next_up)
-        #   self.dequeue(pref)
+            x = next_up.value
+            if next_up.next is None:
+              return "Null"
+            next_up = next_up.next
+            rotated_node = self.Node(x)
+            self.rear.next = rotated_node
+            self.rear = rotated_node
+            self.nodes_rotated += 1
+          
