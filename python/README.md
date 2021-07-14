@@ -196,7 +196,8 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
 create a first in, first out animal shelter 
 
 ### Whiteboard Process
-<!-- Embedded whiteboard image -->
+
+[whitboard](https://github.com/mhendricks96/data-structures-and-algorithms/issues/60)
 
 ### Approach & Efficiency
 
