@@ -49,23 +49,23 @@ class AnimalShelter:
         
         while next_up is not None: 
           if next_up.value == pref:
-            x = next_up.value
+            chosen_animal = next_up.value
             next_up = next_up.next
             self.queue_size -= 1
             times_to_rotate = self.queue_size-self.nodes_rotated
             for i in range(times_to_rotate):
-              y = next_up.value
+              temp = next_up.value
               next_up = next_up.next
-              rotated_node = self.Node(y)
+              rotated_node = self.Node(temp)
               self.rear.next = rotated_node
               self.rear = rotated_node
-            return x
+            return chosen_animal
           else:
-            x = next_up.value
+            wrong_animal = next_up.value
             if next_up.next is None:
               return "Null"
             next_up = next_up.next
-            rotated_node = self.Node(x)
+            rotated_node = self.Node(wrong_animal)
             self.rear.next = rotated_node
             self.rear = rotated_node
             self.nodes_rotated += 1
