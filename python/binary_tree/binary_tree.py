@@ -39,7 +39,6 @@ class BinarySearchTree(BinaryTree):
     """
     # check if tree is empty
     if self.root is None:
-      #if so, new node becomes the root
       self.root = value
       return
 
@@ -51,7 +50,6 @@ class BinarySearchTree(BinaryTree):
 
       
     if self.root > value:
-      #got to left subtree
       #check if left subtree is empty
       #run add() recursively on the left subtree
       if self.left_child:
@@ -60,7 +58,6 @@ class BinarySearchTree(BinaryTree):
         self.left_child = BinarySearchTree(value)
 
     else:
-      #go to right subtree
       #run add() recursevly on right subtree
       if self.right_child:
         self.right_child.add(value)
