@@ -37,10 +37,12 @@ def test_post_order_search():
 def test_empty_tree():
   my_tree = BinaryTree()
   assert my_tree
+  assert my_tree.count == 0
 
 def test_empty_search():
   my_search = BinarySearchTree()
   assert my_search
+  assert my_search.count == 0
 
 def test_search_tree_with_root():
   my_search = BinarySearchTree()
@@ -48,6 +50,7 @@ def test_search_tree_with_root():
   actual = my_search.root
   expected = 15
   assert actual == expected
+  assert my_search.count == 1
 
 def test_adding_nodes_to_root():
   this_search = BinarySearchTree()
@@ -56,6 +59,7 @@ def test_adding_nodes_to_root():
   this_search.add(32)
   actual = this_search.root
   expected = 15
+  assert this_search.count == 3
   assert actual == expected
   
 

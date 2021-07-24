@@ -11,6 +11,7 @@ class BinaryTree:
     self.root = root
     self.left_child = None
     self.right_child = None
+    self.count = 0
     
   
   def pre_order_traverse(self, node_list=[]):
@@ -57,6 +58,7 @@ class BinarySearchTree(BinaryTree):
     # check if tree is empty
     if self.root is None:
       self.root = value
+      self.count += 1
       return
 
     if self.root == value:
@@ -73,14 +75,14 @@ class BinarySearchTree(BinaryTree):
         self.left_child.add(value)
       else:
         self.left_child = BinarySearchTree(value)
-
+        self.count += 1
     else:
       #run add() recursevly on right subtree
       if self.right_child:
         self.right_child.add(value)
       else:
         self.right_child = BinarySearchTree(value)
-
+        self.count += 1
 
   def contains(self, value):
     """
