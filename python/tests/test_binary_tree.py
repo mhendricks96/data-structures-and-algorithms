@@ -1,5 +1,8 @@
 from binary_tree.binary_tree import Node, BinaryTree, BinarySearchTree
 
+"""
+My Tests
+"""
 def test_pre_order_search():
   my_search = BinarySearchTree()
   my_search.add(15)
@@ -118,3 +121,32 @@ def test_contain_many_wrong():
   assert not my_search.contains(77)
   assert not my_search.contains(86)
   assert not my_search.contains(99)
+
+  """"
+  starter code tests
+  """
+
+
+def test_node_has_value():
+    node = Node("apple")
+    assert node.value == "apple"
+
+def test_node_has_left_of_none():
+    node = Node("apple")
+    assert node.left_child is None
+
+def test_node_has_right_of_none():
+    node = Node("apple")
+    assert node.right_child is None
+
+def test_create_binary_tree():
+    tree = BinaryTree()
+    assert tree
+
+def test_binary_tree_has_root():
+    tree = BinaryTree()
+    assert tree.root is None
+
+def test_create_binary_search_tree():
+    tree = BinarySearchTree()
+    assert tree

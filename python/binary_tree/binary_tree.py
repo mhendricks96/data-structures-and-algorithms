@@ -1,11 +1,16 @@
 class Node:
-
+  """
+  emoty node class
+  """
   def __init__(self, value=None, left_child=None, right_child=None):
     self.value = value
     self.left_child = left_child
     self.right_child = right_child
 
 class BinaryTree:
+  """
+  class to create empty binary tree and traverse through it
+  """
   
   def __init__(self, root=None):
     self.root = root
@@ -50,7 +55,11 @@ class BinaryTree:
 
 
 class BinarySearchTree(BinaryTree):
-  
+  """
+  subclass of binary tree to create an empty binary search tree as well as add and contain methods
+  """
+
+
   def add(self, value):
     """
     Adds a new node with that value in the correct location in the binary search tree.
