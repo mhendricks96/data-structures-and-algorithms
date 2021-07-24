@@ -7,32 +7,49 @@ class Node:
 
 class BinaryTree:
   
-  # def __init__(self, root=None):
-  #   self.root = root
-
+  def __init__(self, root=None):
+    self.root = root
+    self.left_child = None
+    self.right_child = None
+    
   
-  
-  def pre_order_traverse():
-    pass
+  def pre_order_traverse(self, node_list=[]):
+    #append root node to node_list
+    node_list.append(self.root)
+    #traverse left subtree
+    if self.left_child:
+      self.left_child.pre_order_traverse(node_list)
+    #traverse right subtree
+    if self.right_child:
+      self.right_child.pre_order_traverse(node_list)
+    return node_list
 
-  def in_order_traverse():
-    pass
+  def in_order_traverse(self, node_list=[]):
+    #traverse left subtree
+    if self.left_child:
+      self.left_child.in_order_traverse(node_list)
+    #append rood node to nodelist
+    node_list.append(self.root)
+    #traverse right subtree
+    if self.right_child:
+      self.right_child.in_order_traverse(node_list)
+    return node_list
 
-  def post_order_traverse():
-    pass
+  def post_order_traverse(self, node_list=[]):
+    #traverse left subtree
+    if self.left_child:
+      self.left_child.post_order_traverse(node_list)
+    #traverse right subtree
+    if self.right_child:
+      self.right_child.post_order_traverse(node_list)
+    #append rood node to nodelist
+    node_list.append(self.root)
+    return node_list
 
-  def level_order_traverse():
-    pass
 
 
 class BinarySearchTree(BinaryTree):
   
-  def __init__(self, root=None,):
-    # super().__init__(root=None,)
-    self.root = root
-    self.left_child = None
-    self.right_child = None
-
   def add(self, value):
     """
     Adds a new node with that value in the correct location in the binary search tree.
