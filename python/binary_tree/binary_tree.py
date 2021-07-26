@@ -52,6 +52,50 @@ class BinaryTree:
     node_list.append(self.root)
     return node_list
 
+  def delete_node(self, value):
+    if self.root is None:
+      print("The tree is empty")
+      return
+    if value < self.root:
+      if self.left_child:
+        self.left_child = self.left_child.delete_node(value)
+      else:
+        print(f"sorry, couldnt find {value}")
+        return
+    elif value > self.root:
+      if self.right_child:
+        self.right_child = self.right_child.delete_node(value)
+      else:
+        print(f"sorry, couldnt find {value}")
+        return
+    else:
+      #after all the recursion above, this should be the node i want to delete.
+      """
+      these will delete any node with 0 or 1 child
+      """
+      if self.left_child is None:
+        temp = self.right_child
+        self = None
+        return temp
+      if self.right_child is None:
+        temp = self.left_child
+        self = None
+        return temp
+
+      """
+      these will delete node with 2 children and replace it with largest node in left subtree or (in this case -->)smallest node in right subtree
+      """
+
+      node = self.right_child
+      while node.left_child:
+        node = left_child
+      self.root = node.root
+      self.right_child = self.right_child.delete_node(node.root)
+
+    return self
+
+    print(f"{value} deleted")
+
 
 
 class BinarySearchTree(BinaryTree):
