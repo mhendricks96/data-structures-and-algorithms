@@ -53,6 +53,9 @@ class BinaryTree:
     return node_list
 
   def delete_node(self, value):
+    """
+    can be used to delete any node other than the main root
+    """
     if self.root is None:
       print("The tree is empty")
       return
