@@ -11,14 +11,12 @@ class BinaryTree:
   """
   class to create empty binary tree and traverse through it
   """
-  
   def __init__(self, root=None):
     self.root = root
     self.left_child = None
     self.right_child = None
     self.count = 0
     
-  
   def pre_order_traverse(self, node_list=[]):
     #append root node to node_list
     node_list.append(self.root)
@@ -97,11 +95,9 @@ class BinaryTree:
         temp = self.left_child
         self = None
         return temp
-
       """
       these will delete node with 2 children and replace it with largest node in left subtree or (in this case -->)smallest node in right subtree
       """
-
       node = self.right_child
       while node.left_child:
         node = left_child
@@ -110,16 +106,11 @@ class BinaryTree:
 
     return self
 
-    print(f"{value} deleted")
-
-
 
 class BinarySearchTree(BinaryTree):
   """
   subclass of binary tree to create an empty binary search tree as well as add and contain methods
   """
-
-
   def add(self, value):
     """
     Adds a new node with that value in the correct location in the binary search tree.
@@ -136,7 +127,6 @@ class BinarySearchTree(BinaryTree):
       pass
       return
 
-      
     if self.root > value:
       #check if left subtree is empty
       #run add() recursively on the left subtree
@@ -156,7 +146,6 @@ class BinarySearchTree(BinaryTree):
   def contains(self, value):
     """
     Returns: boolean indicating whether or not the value is in the tree at least once.
-
     """
     if self.root == value:
       return True
