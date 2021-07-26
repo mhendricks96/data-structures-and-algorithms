@@ -151,7 +151,27 @@ def test_delete_node_with_2_children():
   assert my_searchTree.contains(20)
   assert my_searchTree.contains(87)
 
+def test_find_minimum_value():
+  my_search = BinarySearchTree()
+  my_search.add(50)
+  values_list = [17,10,52,16,6,18]
+  for number in values_list:
+    my_search.add(number)
+  
+  actual = my_search.minimum_value()
+  expected = 6
+  assert actual == expected
 
+def test_find_maximum_value():
+  my_search = BinarySearchTree()
+  my_search.add(50)
+  values_list = [17,10,52,16,6,18]
+  for number in values_list:
+    my_search.add(number)
+  
+  actual = my_search.maximum_value()
+  expected = 52
+  assert actual == expected
 
 """"
 starter code tests

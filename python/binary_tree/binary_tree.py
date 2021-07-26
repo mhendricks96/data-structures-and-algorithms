@@ -52,6 +52,19 @@ class BinaryTree:
     node_list.append(self.root)
     return node_list
 
+
+  def maximum_value(self):
+    current = self
+    while current.right_child:
+      current = current.right_child
+    return current.root
+
+  def minimum_value(self):
+    current =  self
+    while current.left_child:
+      current = current.left_child
+    return current.root
+
   def delete_node(self, value):
     """
     can be used to delete any node other than the main root
