@@ -64,7 +64,7 @@ class BinaryTree:
 
   def minimum_value(self):
     values = self.post_order_traverse()
-    min_value = 0
+    min_value = values[0]
 
     for value in values:
       if value < min_value:
@@ -72,12 +72,6 @@ class BinaryTree:
     return min_value
 
 
-
-  def minimum_value(self):
-    current =  self
-    while current.left_child:
-      current = current.left_child
-    return current.root
 
   def delete_node(self, value):
     """
