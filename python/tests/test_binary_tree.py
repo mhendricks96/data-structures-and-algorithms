@@ -5,39 +5,20 @@ import pytest
 """
 My Tests
 """
-def test_pre_order_search():
-  my_search = BinarySearchTree()
-  my_search.add(15)
-  my_search.add(1)
-  my_search.add(32)
-  my_search.add(10)
-  actual = my_search.pre_order_traverse()
-  expected = [15,1,10,32]
+def test_pre_order_search(my_tree):
+  actual = my_tree.pre_order_traverse()
+  expected = [17,16,6,1738,52,888]
   assert actual == expected
   #yield my_search
 
-def test_in_order_search():
-  my_search = BinarySearchTree()
-  my_search.add(12)
-  my_search.add(15)
-  my_search.add(87)
-  my_search.add(5)
-  my_search.add(10)
-  actual = my_search.in_order_traverse()
-  expected = [5,10,12,15,87]
+def test_in_order_search(my_tree):
+  actual = my_tree.in_order_traverse()
+  expected = [6,16,17,52,888,1738]
   assert actual == expected
 
-def test_post_order_search():
-  my_search = BinarySearchTree()
-  my_search.add(60)
-  my_search.add(64)
-  my_search.add(87)
-  my_search.add(5)
-  my_search.add(70)
-  my_search.add(18)
-  my_search.add(56)
-  actual = my_search.post_order_traverse()
-  expected = [56,18,5,70,87,64,60]
+def test_post_order_search(my_tree):
+  actual = my_tree.post_order_traverse()
+  expected = [6,16,888,52,1738,17]
   assert actual == expected
 
 def test_empty_tree():
@@ -111,30 +92,18 @@ def test_contain_wrong_1():
 
   assert not my_search.contains(99)
 
-def test_contain_many_wrong():
-  my_search = BinarySearchTree()
-  my_search.add(50)
-  values_list = [17,10,32,16,6]
-  for number in values_list:
-    my_search.add(number)
+def test_contain_many_wrong(my_tree):
+  assert not my_tree.contains(7)
+  assert not my_tree.contains(15)
+  assert not my_tree.contains(33)
+  assert not my_tree.contains(77)
+  assert not my_tree.contains(86)
+  assert not my_tree.contains(99)
 
-  assert not my_search.contains(7)
-  assert not my_search.contains(15)
-  assert not my_search.contains(33)
-  assert not my_search.contains(77)
-  assert not my_search.contains(86)
-  assert not my_search.contains(99)
-
-def test_delete_node():
-  my_search = BinarySearchTree()
-  my_search.add(50)
-  values_list = [17,10,32,16,6]
-  for number in values_list:
-    my_search.add(number)
-  assert my_search.contains(17)
-
-  my_search.delete_node(17)
-  assert not my_search.contains(17)
+def test_delete_node(my_tree):
+  assert my_tree.contains(1738)
+  my_tree.delete_node(1738)
+  assert not my_tree.contains(1738)
 
 def test_delete_node_with_2_children():
   my_searchTree = BinarySearchTree()
@@ -151,32 +120,19 @@ def test_delete_node_with_2_children():
   assert my_searchTree.contains(20)
   assert my_searchTree.contains(87)
 
-def test_find_minimum_value():
-  my_search = BinarySearchTree()
-  my_search.add(3)
-  values_list = [2,15,52,16,6,18]
-  for number in values_list:
-    my_search.add(number)
-  
-  actual = my_search.minimum_value()
-  expected = 2
+def test_find_minimum_value(my_tree):
+  actual = my_tree.minimum_value()
+  expected = 6
   assert actual == expected
 
-def test_find_maximum_value():
-  my_search = BinarySearchTree()
-  my_search.add(50)
-  values_list = [17,1738,52,16,6,888]
-  for number in values_list:
-    my_search.add(number)
-  
-  actual = my_search.maximum_value()
+def test_find_maximum_value(my_tree):
+  actual = my_tree.maximum_value()
   expected = 1738
   assert actual == expected
 
 """"
 starter code tests
 """
-
 
 def test_node_has_value():
     node = Node("apple")
@@ -203,15 +159,19 @@ def test_create_binary_search_tree():
     assert tree
 
 
-# @pytest.fixture(autouse=True)
-# def clean():
-#   """runs before each test automatically
-#   There's also a more advanced way to run code after each test as well
-#   Check the docs for that. Hint: it uses yield
-#   """
-#   BinarySearchTree.node_list =[]
-#   BinaryTree.node_list =[]
-#   yield
-#   BinarySearchTree.node_list =[]
-#   BinaryTree.node_list =[]
+##########
+# Fixtures
+##########
 
+@pytest.fixture
+def my_tree():
+  my_tree = BinarySearchTree()
+  values_list = [17,1738,52,16,6,888]
+  for number in values_list:
+    my_tree.add(number)
+  return my_tree
+
+
+  @pytest.fixture(autouse=True)
+  def clean():
+    my_tree = None
