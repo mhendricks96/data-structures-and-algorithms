@@ -53,7 +53,7 @@ class BinaryTree:
 
   def maximum_value(self):
     values = self.in_order_traverse()
-    max_value = 0
+    max_value = values[0]
 
     for value in values:
       if value > max_value:
