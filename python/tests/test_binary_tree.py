@@ -165,12 +165,12 @@ def test_find_minimum_value():
 def test_find_maximum_value():
   my_search = BinarySearchTree()
   my_search.add(50)
-  values_list = [17,10,52,16,6,18]
+  values_list = [17,1738,52,16,6,888]
   for number in values_list:
     my_search.add(number)
   
   actual = my_search.maximum_value()
-  expected = 52
+  expected = 1738
   assert actual == expected
 
 """"

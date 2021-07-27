@@ -54,10 +54,24 @@ class BinaryTree:
 
 
   def maximum_value(self):
-    current = self
-    while current.right_child:
-      current = current.right_child
-    return current.root
+    values = self.in_order_traverse()
+    max_value = 0
+
+    for value in values:
+      if value > max_value:
+        max_value = value
+    return max_value
+
+  def minimum_value(self):
+    values = self.post_order_traverse()
+    min_value = 0
+
+    for value in values:
+      if value < min_value:
+        min_value = value
+    return min_value
+
+
 
   def minimum_value(self):
     current =  self
