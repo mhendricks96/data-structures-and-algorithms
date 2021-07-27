@@ -153,24 +153,24 @@ def test_delete_node_with_2_children():
 
 def test_find_minimum_value():
   my_search = BinarySearchTree()
-  my_search.add(50)
-  values_list = [17,10,52,16,6,18]
+  my_search.add(3)
+  values_list = [2,15,52,16,6,18]
   for number in values_list:
     my_search.add(number)
   
   actual = my_search.minimum_value()
-  expected = 6
+  expected = 2
   assert actual == expected
 
 def test_find_maximum_value():
   my_search = BinarySearchTree()
   my_search.add(50)
-  values_list = [17,10,52,16,6,18]
+  values_list = [17,1738,52,16,6,888]
   for number in values_list:
     my_search.add(number)
   
   actual = my_search.maximum_value()
-  expected = 52
+  expected = 1738
   assert actual == expected
 
 """"
