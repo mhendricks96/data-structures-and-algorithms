@@ -13,7 +13,7 @@ Note: Traverse the input tree using a Breadth-first approach
 
 ## Whiteboard Proces
 
-![tree-breadth-first](https://github.com/michaelhendricks/data-structures-and-algorithms/blob/main/python/code_challenges/img/tree-breadth-first.jpg)
+![code challenge 17f](https://user-images.githubusercontent.com/75649765/127606645-30daf556-359a-4e77-b817-711b70f3ca4a.png)
 
 ## Approach & Efficiency
 
