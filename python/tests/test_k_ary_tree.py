@@ -1,4 +1,4 @@
-from k_ary_tree.k_ary_tree import KaryTree, KNode
+from k_ary_tree.k_ary_tree import KaryTree, KNode, define_fizz_or_buzz, fizz_buzz_tree
 from ll_queue.ll_queue import LL_Queue
 import pytest
 
@@ -25,13 +25,22 @@ def test_level_order_traversal(my_tree):
   expected = [12,17, 21, 5, 8, 30, 15, 10]
   assert actual == expected
 
-# def test_level_order_traversal_2(my_big_tree):
-  
-#   actual = my_big_tree.level_order()
-#   expected = [8,12,10,7,15,99,50]
-#   assert actual == expected
+
+def test_define_function_3():
+  assert define_fizz_or_buzz(9) == "Fizz"
+
+def test_define_function_5():
+  assert define_fizz_or_buzz(25) == "Buzz"
+
+def test_define_function_both():
+  assert define_fizz_or_buzz(30) == "FizzBuzz"
 
 
+def test_fizzbuzz_function(my_tree):
+  new_tree = fizz_buzz_tree(my_tree)
+  actual = new_tree.level_order()
+  expected = ["Fizz","17","Fizz","Buzz","8","FizzBuzz","FizzBuzz","Buzz"]
+  assert actual == expected
 
 
 
@@ -53,18 +62,18 @@ def my_tree():
   my_tree = KaryTree(node1)
   return my_tree
 
-@pytest.fixture
-def my_big_tree():
-  my_big_tree = KaryTree(8)
-  my_big_tree.value.children.append(KNode(12))
-  my_big_tree.children.append(KNode(10))
-  my_big_tree.children.append(KNode(7))
-  my_big_tree.children.append(KNode(15))
-  my_big_tree.children[0].children.append(KNode(99))
-  my_big_tree.children[2].children.append(KNode(50))
-  return my_big_tree
+# @pytest.fixture
+# def my_big_tree():
+#   my_big_tree = KaryTree(8)
+#   my_big_tree.value.children.append(KNode(12))
+#   my_big_tree.children.append(KNode(10))
+#   my_big_tree.children.append(KNode(7))
+#   my_big_tree.children.append(KNode(15))
+#   my_big_tree.children[0].children.append(KNode(99))
+#   my_big_tree.children[2].children.append(KNode(50))
+#   return my_big_tree
 
   @pytest.fixture(autouse=True)
   def clean():
     my_tree = None
-    my_big_tree = None
+    # my_big_tree = None
