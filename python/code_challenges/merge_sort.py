@@ -1,10 +1,16 @@
 
 def merge_sort(start_list):
+  # if statement to break every sublist down to 1
   if len(start_list) > 1: 
+    # find middle point of lists
     middle = len(start_list) // 2
+    # create left sublist with everything before the middle
     left_list = start_list[:middle]
+    # create right sublist with everything middle and after
     right_list = start_list[middle:]
+    # recursively run function on right sublist
     merge_sort(right_list)
+    # recursively run function on left sublist
     merge_sort(left_list)
     # create variables to hold indexes of left,right, and starting lists respectively
     i = 0 # left
