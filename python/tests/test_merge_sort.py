@@ -1,5 +1,5 @@
 import pytest
-from code_challenges.merge_sort import merge_sort
+from code_challenges.sorting_algorithms.merge_sort import merge_sort
 
 def test_merge_sort():
   my_list = [4,7,3,8,1,17,11,5]
