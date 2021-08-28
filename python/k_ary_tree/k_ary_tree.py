@@ -28,8 +28,6 @@ class KaryTree:
 
     return values_list
 
-
-
 def define_fizz_or_buzz(value):
   if value % 15 == 0:
     return "FizzBuzz"
@@ -51,5 +49,4 @@ def fizz_buzz_tree(tree):
     for child in front.children:
       queue.enqueue(child)
 
-    
   return tree

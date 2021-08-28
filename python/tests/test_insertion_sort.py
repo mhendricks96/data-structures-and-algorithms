@@ -1,5 +1,5 @@
 import pytest
-from code_challenges.insertion_sort import insertion_sort
+from code_challenges.sorting_algorithms.insertion_sort import insertion_sort
 
 def test_insertion_sort():
   my_list = [4,7,3,8,1,17,11,5]

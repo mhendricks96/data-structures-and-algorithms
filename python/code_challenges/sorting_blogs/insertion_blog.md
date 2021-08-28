@@ -68,6 +68,6 @@ We have now completed our original for-loop through the list and have our ordere
 
 ### Links to Insertion Sort function and tests
 
-[link to function](python/code_challenges/insertion_sort.py)
+[link to function](python/code_challenges/sorting_algorithms/insertion_sort.py)
 
 [link to tests](python/tests/test_insertion_sort.py)
