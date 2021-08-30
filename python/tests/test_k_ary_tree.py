@@ -62,18 +62,8 @@ def my_tree():
   my_tree = KaryTree(node1)
   return my_tree
 
-# @pytest.fixture
-# def my_big_tree():
-#   my_big_tree = KaryTree(8)
-#   my_big_tree.value.children.append(KNode(12))
-#   my_big_tree.children.append(KNode(10))
-#   my_big_tree.children.append(KNode(7))
-#   my_big_tree.children.append(KNode(15))
-#   my_big_tree.children[0].children.append(KNode(99))
-#   my_big_tree.children[2].children.append(KNode(50))
-#   return my_big_tree
 
   @pytest.fixture(autouse=True)
   def clean():
     my_tree = None
-    # my_big_tree = None
+    
