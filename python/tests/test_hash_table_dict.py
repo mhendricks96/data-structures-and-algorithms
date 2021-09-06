@@ -104,9 +104,9 @@ def test_get_working():
   my_hashtable.add("color", "black")
   my_hashtable.add("size", "large")
   actual = my_hashtable.get("color")
-  expected = {"black"}
+  expected = ["black"]
   actual2 = my_hashtable.get("size")
-  expected2 = {"large"}
+  expected2 = ["large"]
   assert actual == expected
   assert actual2 == expected2
 
@@ -117,6 +117,6 @@ def test_add_same_keys():
     hashtable.add("a", "apple")
     hashtable.add("a", "alfalfa")
     actual = hashtable.get("a")
-    expected = {"apple","alfalfa"}
+    expected = ["apple","alfalfa"]
     assert actual == expected
 
