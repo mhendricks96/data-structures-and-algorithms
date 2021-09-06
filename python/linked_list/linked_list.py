@@ -10,6 +10,11 @@ class LinkedList:
     """
     def __init__(self, head=None):
         self.head = head
+        self.length = 0
+
+    def __len__(self):
+        """keeps tack of length of list"""
+        return self.length
 
     def __str__(self):
         string = ""
@@ -28,6 +33,7 @@ class LinkedList:
         if self.head is not None:
             node.next = self.head
         self.head = node
+        self.length += 1
 
     def append_to_end(self, value):
         """adds neew node to end of linked list"""
@@ -39,6 +45,7 @@ class LinkedList:
           while current.next is not None:
              current = current.next
           current.next = new_node
+        self.length += 1
 
     def append_after_value(self, value, new_value):
         """adds new node after a given value"""
@@ -53,7 +60,8 @@ class LinkedList:
             new_node = Node(new_value)
             new_node.next = current.next
             current.next = new_node 
-        
+        self.length += 1
+
     def append_before_value(self, value, new_value):
         """adds new node before a given value"""
         current = self.head
@@ -67,6 +75,7 @@ class LinkedList:
             new_node = Node(new_value)
             new_node.next = current.next
             current.next = new_node 
+        self.length += 1
     
     def includes(self, key):
         """
@@ -77,6 +86,7 @@ class LinkedList:
             if current.value == key:
                 return True
             current = current.next
+        return False
     
     def kth_from_end(self, k):
         """

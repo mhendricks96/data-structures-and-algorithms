@@ -18,7 +18,7 @@ def test_node_instance_wrong_value():
 
 def test_empty_list():
     my_list = LinkedList()
-    assert my_list
+    assert my_list.length == 0
 
 def test_insert():
     my_list = LinkedList()
