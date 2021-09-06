@@ -18,10 +18,10 @@ class HashTableDict:
       current = bucket.head
       while current is not None:
         if key in current.value:
-          current.value[key].add(value)
+          current.value[key].append(value)
         current = current.next
     else:
-      bucket.insert({key: {value}})
+      bucket.insert({key: [value]})
 
 
   def get(self, key):
