@@ -39,3 +39,34 @@ def repeated_word_dict_hash(string):
     
     else:
       my_hash.add(word, 1)
+
+
+def word_counts_dict_hash(string):
+  """Function That takes in a string and returns a list of all the words and how many times they occur in the string """
+  my_hash = HashTableDict()
+  word_counts = []
+  for word in string.split(' '):
+
+    if my_hash.contains(word):
+      index = my_hash.hash(word)
+      bucket = my_hash.buckets[index]
+      current = bucket.head
+      while current is not None:
+        if word in current.value:
+          current.value[word][0] += 1
+        current = current.next
+    else:
+      my_hash.add(word, 1)
+      
+  for word in string.split(' '):
+    if my_hash.contains(word):
+      index = my_hash.hash(word)
+      bucket = my_hash.buckets[index]
+      current = bucket.head
+      while current is not None:
+        if word in current.value and current.value not in word_counts:
+          word_counts.append(current.value)
+        current = current.next
+
+  return word_counts[:6]
+    
