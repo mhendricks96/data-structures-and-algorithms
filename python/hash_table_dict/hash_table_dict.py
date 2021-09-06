@@ -1,25 +1,28 @@
 from linked_list.linked_list import LinkedList, Node
 
-class HashTable:
+class HashTableDict:
 
   def __init__(self, size=1024):
     self.size = size
     self.buckets = [None] * self.size
 
   def add(self, key, value):
-    """
-    addsnew key-value pair to hash table. can only input 1 value per key
-    """
     index = self.hash(key)
-
-    if self.contains(key):
-      return "sorry, can only accept 1 value per key"
 
     if not self.buckets[index]:
       self.buckets[index] = LinkedList()
 
     bucket = self.buckets[index]
-    bucket.insert([key, value])
+    
+    if self.contains(key):
+      current = bucket.head
+      while current is not None:
+        if key in current.value:
+          current.value[key].add(value)
+        current = current.next
+    else:
+      bucket.insert({key: {value}})
+
 
   def get(self, key):
     """
@@ -32,21 +35,18 @@ class HashTable:
     
     current = bucket.head
     while current is not None:
-      if current.value[0] == key:
-        return current.value[1]
+      if key in current.value:
+        return current.value[key]
       current = current.next
 
   def contains(self, key):
-    """
-    returns a boolean depending on wheter or not the given key is present in the hash table
-    """
     index = self.hash(key)
     bucket = self.buckets[index]
 
     if bucket:
       current = bucket.head
       while current is not None:
-        if current.value[0] == key:
+        if key in current.value:
           return True
         current = current.next
     
@@ -65,4 +65,3 @@ class HashTable:
     index = product % self.size
     
     return index
-
