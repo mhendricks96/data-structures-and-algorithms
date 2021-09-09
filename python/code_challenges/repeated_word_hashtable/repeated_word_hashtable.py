@@ -2,6 +2,7 @@ from hash_table.hash_table import HashTable
 from hash_table_dict.hash_table_dict import HashTableDict
 from linked_list.linked_list import LinkedList, Node
 
+
 def repeated_word(string):
   """Function that takes in a string and returns the first word to occur mor than once in the string."""
   my_hash = HashTable()
