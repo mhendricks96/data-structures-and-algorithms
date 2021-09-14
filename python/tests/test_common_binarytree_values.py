@@ -21,3 +21,34 @@ def test_sets_solution():
   expected = [16,17,80]
   assert actual == expected
 
+def test_sets_solution_all_same():
+  this_tree = BinarySearchTree()
+  that_tree = BinarySearchTree()
+
+  values_list = [17,1738,77,16,9,80]
+  for number in values_list:
+    this_tree.add(number)
+
+  values_list2 = [17,1738,77,16,9,80]
+  for number in values_list2:
+    that_tree.add(number)
+  
+  actual = solve_it_with_sets(this_tree, that_tree)
+  expected = [9,1738,77,16,80,17]
+  assert actual == expected
+
+  def test_sets_solution_none():
+    this_tree = BinarySearchTree()
+    that_tree = BinarySearchTree()
+
+    values_list = [17,1738,77,16,9,80]
+    for number in values_list:
+      this_tree.add(number)
+
+    values_list2 = [1,2,3,4,5,6]
+    for number in values_list2:
+      that_tree.add(number)
+  
+    actual = solve_it_with_sets(this_tree, that_tree)
+    expected = []
+    assert actual == expected
