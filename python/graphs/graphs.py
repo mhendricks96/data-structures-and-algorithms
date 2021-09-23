@@ -1,4 +1,4 @@
-#from typing_extensions import ParamSpecKwargs
+from ll_queue.ll_queue import LL_Queue
 
 #  instances: graph, vertex, edge
 # graph methods: add_node, add_edge, get_nodes, get_neighbors, size
@@ -52,3 +52,25 @@ class Graph:
   def size(self):
     '''returns the number of nodes in the graph'''
     return len(self._adjacency_list)
+
+  
+  def breadth_first(self, vertex):
+    final_node_list = []
+    holding_queue = LL_Queue()
+    holding_queue.enqueue(vertex)
+
+    visited_nodes = set()
+    visited_nodes.add(vertex)
+
+    while not holding_queue.is_empty():
+      current = holding_queue.dequeue()
+      current_neighbors = self.get_neighbors(current).keys()
+      final_node_list.append(current)
+
+      for neighbor in current_neighbors:
+        if neighbor not in visited_nodes:
+          visited_nodes.add(neighbor)
+          holding_queue.enqueue(neighbor)
+    
+    print(final_node_list)
+    return final_node_list
