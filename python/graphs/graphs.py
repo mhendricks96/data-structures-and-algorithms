@@ -76,24 +76,26 @@ class Graph:
     print(final_node_list)
     return final_node_list
 
-    
-    
+
+
   def depth_first(self, vertex):
     final_node_list = []
     holding_stack = LL_Stack()
     visited_nodes = set()
+    
+    if vertex not in self._adjacency_list:
+      return "node not found"
+    
     holding_stack.push(vertex)
-    visited_nodes.add(vertex)
 
     while not holding_stack.is_empty():
+    
       current = holding_stack.pop()
-      current_neighbors = self.get_neighbors(current).keys()
-      final_node_list.append(current)
-
-      for neighbor in current_neighbors:
-        if neighbor not in visited_nodes:
-          visited_nodes.add(neighbor)
-          holding_stack.push(neighbor)
+      if current not in visited_nodes:
+        final_node_list.append(current)
+        visited_nodes.add(current)
+        for neighbor in self._adjacency_list[current]:
+          holding_stack.push(neighbor.vertex)
 
     #print(final_node_list)
     return final_node_list
