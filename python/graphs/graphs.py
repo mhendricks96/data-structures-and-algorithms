@@ -1,4 +1,5 @@
 from ll_queue.ll_queue import LL_Queue
+from ll_stack.ll_stack import LL_Stack
 
 #  instances: graph, vertex, edge
 # graph methods: add_node, add_edge, get_nodes, get_neighbors, size
@@ -74,3 +75,26 @@ class Graph:
     
     print(final_node_list)
     return final_node_list
+
+    
+    
+  def depth_first(self, vertex):
+    final_node_list = []
+    holding_stack = LL_Stack()
+    visited_nodes = set()
+    holding_stack.push(vertex)
+    visited_nodes.add(vertex)
+
+    while not holding_stack.is_empty():
+      current = holding_stack.pop()
+      current_neighbors = self.get_neighbors(current).keys()
+      final_node_list.append(current)
+
+      for neighbor in current_neighbors:
+        if neighbor not in visited_nodes:
+          visited_nodes.add(neighbor)
+          holding_stack.push(neighbor)
+
+    #print(final_node_list)
+    return final_node_list
+

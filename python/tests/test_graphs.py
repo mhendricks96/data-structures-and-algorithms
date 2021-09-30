@@ -110,4 +110,37 @@ def test_breadth_first_from_middle():
   expected = [node3, node2, node4, node5, node1, node6, node7]
   assert actual == expected
 
-  
+## Depth-first Travesal Tests
+
+def test_depth_first_traversal():
+  my_graph = Graph()
+  nodeA = my_graph.add_node('A')
+  nodeB = my_graph.add_node('B')
+  nodeC = my_graph.add_node('C')
+  nodeD = my_graph.add_node('D')
+  nodeE = my_graph.add_node('E')
+  nodeF = my_graph.add_node('F')
+  nodeG = my_graph.add_node('G')
+  nodeH = my_graph.add_node('H')
+  my_graph.add_edge(nodeA, nodeB)
+  my_graph.add_edge(nodeB, nodeA)
+  my_graph.add_edge(nodeA, nodeD)
+  my_graph.add_edge(nodeD, nodeA)
+  my_graph.add_edge(nodeB, nodeD)
+  my_graph.add_edge(nodeD, nodeB)
+  my_graph.add_edge(nodeB, nodeC)
+  my_graph.add_edge(nodeC, nodeB)
+  my_graph.add_edge(nodeC, nodeG)
+  my_graph.add_edge(nodeG, nodeC)
+  my_graph.add_edge(nodeD, nodeE)
+  my_graph.add_edge(nodeE, nodeD)
+  my_graph.add_edge(nodeD, nodeH)
+  my_graph.add_edge(nodeH, nodeD)
+  my_graph.add_edge(nodeD, nodeF)
+  my_graph.add_edge(nodeF, nodeD)
+  my_graph.add_edge(nodeF, nodeH)
+  my_graph.add_edge(nodeH, nodeF)
+
+  actual = my_graph.depth_first(nodeA)
+  expected = [nodeA, nodeB, nodeC, nodeG, nodeD, nodeE, nodeH, nodeF]
+  assert actual == expected
