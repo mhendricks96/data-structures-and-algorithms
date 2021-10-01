@@ -110,4 +110,56 @@ def test_breadth_first_from_middle():
   expected = [node3, node2, node4, node5, node1, node6, node7]
   assert actual == expected
 
-  
+## Depth-first Travesal Tests
+
+def test_depth_first_traversal():
+  my_graph = Graph()
+  nodeA = my_graph.add_node('A')
+  nodeB = my_graph.add_node('B')
+  nodeC = my_graph.add_node('C')
+  nodeD = my_graph.add_node('D')
+  nodeE = my_graph.add_node('E')
+  my_graph.add_edge(nodeA, nodeB)
+  my_graph.add_edge(nodeB, nodeE)
+  my_graph.add_edge(nodeA, nodeC)
+  my_graph.add_edge(nodeA, nodeD)
+  my_graph.add_edge(nodeB, nodeD)
+  my_graph.add_edge(nodeC, nodeD)
+  my_graph.add_edge(nodeE, nodeD)
+
+  actual = my_graph.depth_first(nodeA)
+  expected = [nodeA, nodeD, nodeC, nodeB, nodeE]
+  assert actual == expected
+
+def test_not_found():
+  my_graph = Graph()
+  my_vertex = Vertex("michael")
+  nodeA = my_graph.add_node('A')
+  nodeB = my_graph.add_node('B')
+  nodeC = my_graph.add_node('C')
+  my_graph.add_edge(nodeA, nodeB)
+  my_graph.add_edge(nodeB, nodeC)
+  my_graph.add_edge(nodeA, nodeC)
+
+  actual = my_graph.depth_first(my_vertex)
+  expected = "node not found"
+  assert actual == expected
+
+def test_depth_first_traversal_mixed_nodes():
+  my_graph = Graph()
+  node4 = my_graph.add_node(4)
+  node12 = my_graph.add_node(12)
+  node23 = my_graph.add_node(23)
+  nodeD = my_graph.add_node('D')
+  nodeE = my_graph.add_node('E')
+  my_graph.add_edge(node4, node12)
+  my_graph.add_edge(node12, nodeE)
+  my_graph.add_edge(node4, node23)
+  my_graph.add_edge(node4, nodeD)
+  my_graph.add_edge(node12, nodeD)
+  my_graph.add_edge(node23, nodeD)
+  my_graph.add_edge(nodeE, nodeD)
+
+  actual = my_graph.depth_first(node4)
+  expected = [node4, nodeD, node23, node12, nodeE]
+  assert actual == expected
