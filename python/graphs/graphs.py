@@ -1,8 +1,6 @@
 from ll_queue.ll_queue import LL_Queue
 from ll_stack.ll_stack import LL_Stack
 
-#  instances: graph, vertex, edge
-# graph methods: add_node, add_edge, get_nodes, get_neighbors, size
 
 class Vertex:
   '''creates a new vertex(node) object with a value'''
