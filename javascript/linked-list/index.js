@@ -52,9 +52,10 @@ class LinkedList {
     return false;
   }
 
-  toString (){
+  to_string (){
     let current = this.head;
     let values = [];
+    let answer = '';
 
     while (current) {
       values.push(current.value);
@@ -62,8 +63,9 @@ class LinkedList {
     }
 
     for (let i = 0; i < values.length; i++){
-      console.log(`{ ${values[i]} -> }`, 'null');
+      answer += `{ ${values[i]} } -> `;
     }
+    return (`${answer}NULL`);
   }
 
 }
