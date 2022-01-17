@@ -13,22 +13,6 @@ class LinkedList {
     this.length = 0;
   }
 
-  append(value){
-    let node = new Node(value);
-    if (this.head === null){
-      this.head = node;
-      this.length += 1;
-      return;
-    }
-
-    let current = this.head;
-    while (current.next){
-      current = current.next;
-    }
-    current.next = node;
-    this.length += 1;
-  }
-
   insert(value){
     let node = new Node(value);
     if (this.head === null){
@@ -66,6 +50,64 @@ class LinkedList {
       answer += `{ ${values[i]} } -> `;
     }
     return (`${answer}NULL`);
+  }
+
+  append(value){
+    let node = new Node(value);
+    if (this.head === null){
+      this.head = node;
+      this.length += 1;
+      return;
+    }
+
+    let current = this.head;
+    while (current.next){
+      current = current.next;
+    }
+    current.next = node;
+    this.length += 1;
+  }
+
+  insertBefore(value, newValue){
+    let newNode = new Node(newValue);
+    let current = this.head;
+
+    while (current.next){
+      if (current.next.value === value){
+        newNode.next = current.next;
+        current.next = newNode;
+        return;
+      }
+      current = current.next;
+    }
+    return 'value is not in linked list';
+  }
+
+  insertAfter(value, newValue) {
+    let newNode = new Node(newValue);
+    let current = this.head;
+
+    while (current){
+      if (current.value === value){
+        newNode.next = current.next;
+        current.next = newNode;
+        return;
+      }
+      current = current.next;
+    }
+    return 'value is not in linked list';
+  }
+
+  // Stretch goal
+  deleteValue(value){
+    let current = this.head;
+    while (current.next){
+      if (current.next.value === value){
+        current.next = current.next.next;
+      }
+      current = current.next;
+    }
+    return 'value is not in linked list';
   }
 
 }
