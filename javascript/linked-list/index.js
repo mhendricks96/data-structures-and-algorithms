@@ -72,6 +72,11 @@ class LinkedList {
     let newNode = new Node(newValue);
     let current = this.head;
 
+    if (current.value === value){
+      newNode.next = current;
+      this.head = newNode;
+    }
+
     while (current.next){
       if (current.next.value === value){
         newNode.next = current.next;
