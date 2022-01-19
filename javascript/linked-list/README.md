@@ -10,6 +10,10 @@ Implement a singly linked list with a node class and a linkedlist class. the lin
 
 Write the following methods for the Linked List class: append, insert before, insert after.
 
+## Kth from the end
+
+write the following methods for the Linked List class: kth from end
+
 ## API
 
 ### insert()
@@ -44,3 +48,8 @@ adds a new node with the given new value immediately befor the first node that h
 
 Argument: value, new value
 adds a new node with the given new value immediately afer the first node that has the value specified.
+
+## kth from end()
+
+argument: a number, k, as a parameter.
+Returna the node’s value that is k places from the tail of the linked list.
