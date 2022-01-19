@@ -63,22 +63,73 @@ describe('Testing string function', () => {
   });
 });
 
-describe('Testing Linked List insertion', () => {
-  it('should be able to add to array with insertions', () => {
+describe('Testing append method', () => {
+  it('should append nodes to end of linked list', () => {
+    let my_list = new LinkedList();
+    my_list.append(5);
+    my_list.append(3);
+    my_list.append(7);
+    expect(my_list.to_string()).toEqual('{ 5 } -> { 3 } -> { 7 } -> NULL');
+  });
+});
+
+describe('Testing insertBefore method', () => {
+  it('should insert node before a node in the middle of linked list', () => {
     let my_list = new LinkedList();
     my_list.append(5); // append method works
     my_list.append(3);
     my_list.append(7);
-    expect(my_list.length).toEqual(3);
-    expect(my_list.head.value).toEqual(5);
-    expect(my_list.to_string()).toEqual('{ 5 } -> { 3 } -> { 7 } -> NULL');
-    my_list.insertBefore(7, 12);
-    expect(my_list.to_string()).toEqual('{ 5 } -> { 3 } -> { 12 } -> { 7 } -> NULL');
+    my_list.insertBefore(3, 12);
+    expect(my_list.to_string()).toEqual('{ 5 } -> { 12 } -> { 3 } -> { 7 } -> NULL');
+  });
+  it('should insert node before the first node', () => {
+    let my_list = new LinkedList();
+    my_list.append(5); // append method works
+    my_list.append(3);
+    my_list.append(7);
+    my_list.insertBefore(5, 12);
+    expect(my_list.to_string()).toEqual('{ 12 } -> { 5 } -> { 3 } -> { 7 } -> NULL');
+  });
+  it('should retrun a string if the value is not in the list', () => {
+    let my_list = new LinkedList();
+    my_list.append(5); // append method works
+    my_list.append(3);
+    my_list.append(7);
     expect(my_list.insertBefore(17, 55)).toEqual('value is not in linked list');
-    my_list.insertAfter(5, 'hello');
-    expect(my_list.to_string()).toEqual('{ 5 } -> { hello } -> { 3 } -> { 12 } -> { 7 } -> NULL');
-    expect(my_list.insertBefore(17, 55)).toEqual('value is not in linked list');
-    my_list.deleteValue(3);
-    expect(my_list.to_string()).toEqual('{ 5 } -> { hello } -> { 12 } -> { 7 } -> NULL');
   });
 });
+
+
+describe('Testing insertAfter', () => {
+  it('should insert after a node in the middle of the list', () => {
+    let my_list = new LinkedList();
+    my_list.append(5); // append method works
+    my_list.append(3);
+    my_list.append(7);
+    my_list.insertAfter(3, 'hello');
+    expect(my_list.to_string()).toEqual('{ 5 } -> { 3 } -> { hello } -> { 7 } -> NULL');
+  });
+
+  it('should insert after the last node of the list', () => {
+    let my_list = new LinkedList();
+    my_list.append(5); // append method works
+    my_list.append(3);
+    my_list.append(7);
+    my_list.insertAfter(7, 'hello');
+    expect(my_list.to_string()).toEqual('{ 5 } -> { 3 } -> { 7 } -> { hello } -> NULL');
+  });
+});
+
+// stretch goal
+
+describe('Testing delete method', () => {
+  it('should remove node with given value from the list', () => {
+    let my_list = new LinkedList();
+    my_list.append(5); // append method works
+    my_list.append(3);
+    my_list.append(7);
+    my_list.deleteValue(3);
+    expect(my_list.to_string()).toEqual('{ 5 } -> { 7 } -> NULL');
+  });
+});
+
