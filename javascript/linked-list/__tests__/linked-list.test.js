@@ -76,7 +76,7 @@ describe('Testing append method', () => {
 describe('Testing insertBefore method', () => {
   it('should insert node before a node in the middle of linked list', () => {
     let my_list = new LinkedList();
-    my_list.append(5); // append method works
+    my_list.append(5);
     my_list.append(3);
     my_list.append(7);
     my_list.insertBefore(3, 12);
@@ -84,7 +84,7 @@ describe('Testing insertBefore method', () => {
   });
   it('should insert node before the first node', () => {
     let my_list = new LinkedList();
-    my_list.append(5); // append method works
+    my_list.append(5);
     my_list.append(3);
     my_list.append(7);
     my_list.insertBefore(5, 12);
@@ -92,7 +92,7 @@ describe('Testing insertBefore method', () => {
   });
   it('should retrun a string if the value is not in the list', () => {
     let my_list = new LinkedList();
-    my_list.append(5); // append method works
+    my_list.append(5);
     my_list.append(3);
     my_list.append(7);
     expect(my_list.insertBefore(17, 55)).toEqual('value is not in linked list');
@@ -103,7 +103,7 @@ describe('Testing insertBefore method', () => {
 describe('Testing insertAfter', () => {
   it('should insert after a node in the middle of the list', () => {
     let my_list = new LinkedList();
-    my_list.append(5); // append method works
+    my_list.append(5);
     my_list.append(3);
     my_list.append(7);
     my_list.insertAfter(3, 'hello');
@@ -112,7 +112,7 @@ describe('Testing insertAfter', () => {
 
   it('should insert after the last node of the list', () => {
     let my_list = new LinkedList();
-    my_list.append(5); // append method works
+    my_list.append(5);
     my_list.append(3);
     my_list.append(7);
     my_list.insertAfter(7, 'hello');
@@ -125,7 +125,7 @@ describe('Testing insertAfter', () => {
 describe('Testing delete method', () => {
   it('should remove node with given value from the list', () => {
     let my_list = new LinkedList();
-    my_list.append(5); // append method works
+    my_list.append(5);
     my_list.append(3);
     my_list.append(7);
     my_list.deleteValue(3);
@@ -133,3 +133,51 @@ describe('Testing delete method', () => {
   });
 });
 
+describe('Testing Where k is greater than the length of the linked list', () => {
+  it('should return that it cannot be done', () => {
+    let my_list = new LinkedList();
+    my_list.append(5);
+    my_list.append(3);
+    my_list.append(7);
+    expect(my_list.kth_from_end(8)).toEqual('this list is not that long. choose a smaller number');
+  });
+});
+
+describe('Testing Where k is the same as the length of the list', () => {
+  it('should return that it cannot be done', () => {
+    let my_list = new LinkedList();
+    my_list.append(5);
+    my_list.append(3);
+    my_list.append(7);
+    expect(my_list.kth_from_end(3)).toEqual('this list is not that long. choose a smaller number');
+  });
+});
+
+describe('Testing Where k is a negative integer', () => {
+  it('should return that it cannot be done', () => {
+    let my_list = new LinkedList();
+    my_list.append(5);
+    my_list.append(3);
+    my_list.append(7);
+    expect(my_list.kth_from_end(-1)).toEqual('what is this calculus??? choose a positive number!');
+  });
+});
+
+describe('Testing Where the linked list only has 1 item', () => {
+  it('should return that it cannot be done', () => {
+    let my_list = new LinkedList();
+    my_list.append(5);
+    expect(my_list.kth_from_end(1)).toEqual('omg this is embarassing but the list only has 1 item....awkward');
+  });
+});
+
+describe('Testing Where kth method works', () => {
+  it('should return k-th value from the end of a linked list', () => {
+    let my_list = new LinkedList();
+    my_list.append(1);
+    my_list.append(3);
+    my_list.append(8);
+    my_list.append(2);
+    expect(my_list.kth_from_end(2)).toEqual(3);
+  });
+});

@@ -115,6 +115,23 @@ class LinkedList {
     return 'value is not in linked list';
   }
 
+  kth_from_end(k){
+    if (this.length < 2){
+      return 'omg this is embarassing but the list only has 1 item....awkward';
+    } else if (k < 0){
+      return 'what is this calculus??? choose a positive number!';
+    } else if (k >= this.length){
+      return 'this list is not that long. choose a smaller number';
+    } else {
+      let current = this.head;
+      let target = this.length - k;
+      for (let i = 0; i < target-1; i++){
+        current = current.next;
+      }
+      return current.value;
+    }
+  }
+
 }
 
 module.exports = LinkedList;
