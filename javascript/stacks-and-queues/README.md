@@ -4,9 +4,13 @@
 
 - A queue is an ordered list of elements where an element is inserted at the end of the queue and is removed from the front of the queue. A queue works based on the first-in, first-out (FIFO) principle.
 
+- A PsudoQueue is a queue that is implemented using 2 stacks.
+
 ## Challenge
 
-Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
+- Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue.
+
+- Impement a Queue using 2 Stacks
 
 ## API
 
@@ -72,3 +76,17 @@ Using a Linked List as the underlying data storage mechanism, implement both a S
 - Arguments: none
 
 - Returns: Boolean indicating whether or not the queue is empty.
+
+### PsudoQueue
+
+#### enqueue ()
+
+- Arguments: value
+
+- Inserts value into the PseudoQueue, using a first-in, first-out approach.
+
+#### dequeue ()
+
+- Arguments: none
+
+- Extracts a value from the PseudoQueue, using a first-in, first-out approachh.
