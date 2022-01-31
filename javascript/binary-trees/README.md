@@ -1,6 +1,6 @@
 # Binary Trees
 
-a binary tree is a tree data structure in which each node has at most two children
+A binary tree is a tree data structure in which each node has at most two children
 
 ## Binary Tree
 
@@ -17,6 +17,10 @@ Returns: an array of the values with the root second
 #### post-order()
 
 Returns: an array of the values with the root last
+
+#### findMax()
+
+Returns: Highest node value present in the tree.
 
 ## Binary Search Tree
 

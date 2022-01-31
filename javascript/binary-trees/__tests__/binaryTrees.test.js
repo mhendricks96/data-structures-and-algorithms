@@ -2,8 +2,6 @@
 
 const { it, describe } = require('eslint/lib/rule-tester/rule-tester');
 const { Node, BinaryTree, BinarySearchTree } = require('../index');
-// const BinaryTree = require('../index.js');
-// const BinarySearchTree = require('../index.js');
 
 describe('Binary Tree', () => {
   it('works', () => {
@@ -107,4 +105,13 @@ describe('Testing contains method', () => {
     my_searchTree.add(17);
     expect(my_searchTree.contains(1)).toEqual(false);
   });
+});
+
+describe('Testing find Maximum Function', () => {
+  let my_searchTree = new BinarySearchTree();
+  my_searchTree.root = new Node(77);
+  my_searchTree.add(100);
+  my_searchTree.add(10);
+  my_searchTree.add(17);
+  expect(my_searchTree.findMax()).toEqual(100);
 });
