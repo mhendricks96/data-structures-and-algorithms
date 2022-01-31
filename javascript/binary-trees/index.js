@@ -11,7 +11,6 @@ class BinaryTree {
   constructor() {
     this.root = null;
     this.count = 0;
-    //this.nodes = [];
   }
 
   preOrder(node) {
@@ -70,6 +69,27 @@ class BinaryTree {
     recursivePart(node);
     return nodeArray;
   }
+
+  findMax() {
+    let maximum = this.root.value;
+
+    function recursivePart(node){
+      //append root node to node_list
+      if (node.value > maximum) {
+        maximum = node.value;
+      }
+      //traverse left subtree
+      if (node.left){
+        recursivePart(node.left);
+      }
+      //traverse right subtree
+      if (node.right){
+        recursivePart(node.right);
+      }
+    }
+    recursivePart(this.root);
+    return maximum;
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
@@ -81,7 +101,6 @@ class BinarySearchTree extends BinaryTree {
 
     function recursivePart(node) {
       if (node.value === value){
-        console.log(node.value, value);
         return 'tree already has this value';
       } else if (node.value > value){
         if (node.left){
