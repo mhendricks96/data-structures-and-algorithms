@@ -46,7 +46,7 @@ describe('Testing dequeueing off of Queue', () => {
     myQueue.enqueue(35);
     myQueue.dequeue();
     myQueue.dequeue();
-    expect(myQueue.length).toEqual(0);
+    expect(myQueue.is_empty()).toEqual(true);
   });
   it('Should raise an exception if the Queue is empty',() => {
     let myQueue = new Queue();
