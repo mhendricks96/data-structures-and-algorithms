@@ -18,7 +18,7 @@ class Queue {
   }
 
   is_empty() {
-    if (this.length === 0){
+    if (!this.front){
       return true;
     } else {
       return false;
@@ -39,9 +39,11 @@ class Queue {
       this.front = node;
       this.back = node;
     } else {
-      let temp = this.back;
+      // let temp = this.back;
+      node.next = this.back;
       this.back = node;
-      temp.next = node;
+      // this.back = node;
+      // temp.next = node;
     }
     this.length += 1;
     return;
