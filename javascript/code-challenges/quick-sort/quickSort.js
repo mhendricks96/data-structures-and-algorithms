@@ -9,7 +9,7 @@ const findPivot = (array, first, last) => {
   let right = last;
 
   // eslint-disable-next-line no-constant-condition
-  while (true) {
+  while (pivot <= last) {
     //see if 'left' element is less than 'right' element and pivot element. if so, make the next element 'left'
     while ((left < right) && array[left] <= pivot) {
       left = left + 1;
