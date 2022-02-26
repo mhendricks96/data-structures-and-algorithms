@@ -1,6 +1,6 @@
 # Code Challenge 32: Common Values
 
-Find common values in 2 binary trees.
+Write a function that LEFT JOINs two hashmaps into a single data structure
 
 ## Challenge
 
