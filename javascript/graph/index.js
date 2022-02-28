@@ -51,18 +51,19 @@ class Graph {
 
     while(!queue.is_empty()){
       let current = queue.dequeue();
-      let currentNeighbors = this.getNeighbors(current).keys();
+      let currentNeighbors = Array.from(this.getNeighbors(current));
       nodes.push(current);
 
-      for (let i = 0; i < currentNeighbors.length; i++){
+      // console.log(currentNeighbors);
+      for (let i = 0; i < currentNeighbors.length; i++) {
         let neighbor = currentNeighbors[i];
-        if (!visited_nodes.contains(neighbor)){
+        if (!visited_nodes.includes(neighbor)){
           visited_nodes.push(neighbor);
           queue.enqueue(neighbor);
         }
       }
     }
-    return nodes;
+    return nodes.slice(0,-1);
   }
 
 }
