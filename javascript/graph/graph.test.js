@@ -1,7 +1,7 @@
 'use strict';
 
-const { it } = require('eslint/lib/rule-tester/rule-tester');
-const { Graph, Node, Edge } = require('./index');
+const { it, describe } = require('eslint/lib/rule-tester/rule-tester');
+const Graph = require('./index');
 
 describe('Graph', () => {
   it('works', () => {
@@ -37,7 +37,7 @@ describe('Testing get nodes', () => {
     my_graph.addNode(8);
     my_graph.addNode(7);
     my_graph.addNode(5);
-    expect(my_graph.getNodes()).toEqual(['5','7','8']);
+    expect(my_graph.getNodes()).toEqual([8,7,5]);
   });
 });
 
@@ -51,14 +51,6 @@ describe('Testing edge creation not present', () => {
   });
 });
 
-describe('Testing edge creation successful', () => {
-  it('should add an edge', () => {
-    let my_graph = new Graph();
-    let node1 = my_graph.addNode(8);
-    let node2 = my_graph.addNode(7);
-    let my_edge = new Edge(node1,node2);
-    expect(my_edge).toBeTruthy();
-  });
-});
+
 
 
