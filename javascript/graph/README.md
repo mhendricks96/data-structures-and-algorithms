@@ -16,6 +16,8 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 
 - size which returns the total number of nodes in the graph
 
+- breadth first traversal which returns a collection of nodes in the order they were visited.
+
 ## Approach & Efficiency
 
 created a graph with a dictionary to hold all the nodes and their edges. added a node to the graph is basically just adding a new key to the dictionary and adding edges to a node is just adding values to that nodes values list.

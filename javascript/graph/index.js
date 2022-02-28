@@ -1,5 +1,5 @@
 'use strict';
-
+const Queue = require('../stacks-and-queues/queue');
 
 
 class Graph {
@@ -38,6 +38,34 @@ class Graph {
   size() {
     return this.adjacencyList.size;
   }
+
+  breathFirst(){
+
+    let nodes = [];
+    let visited_nodes = [];
+    let queue = new Queue();
+    let [firstNode] = this.adjacencyList.keys();
+
+    queue.enqueue(firstNode);
+    visited_nodes.push(firstNode);
+
+    while(!queue.is_empty()){
+      let current = queue.dequeue();
+      let currentNeighbors = Array.from(this.getNeighbors(current));
+      nodes.push(current);
+
+      // console.log(currentNeighbors);
+      for (let i = 0; i < currentNeighbors.length; i++) {
+        let neighbor = currentNeighbors[i];
+        if (!visited_nodes.includes(neighbor)){
+          visited_nodes.push(neighbor);
+          queue.enqueue(neighbor);
+        }
+      }
+    }
+    return nodes.slice(0,-1);
+  }
+
 }
 
 module.exports = Graph;
