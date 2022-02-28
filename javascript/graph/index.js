@@ -1,65 +1,43 @@
 'use strict';
 
-class Node {
-  constructor(value) {
-    this.value = value;
-  }
-}
 
-class Edge {
-  constructor(nodeFrom, weight=0) {
-    this.nodeFrom = nodeFrom;
-    this.weight = weight;
-  }
-}
 
 class Graph {
   constructor(){
-    this._adjacencyList = {};
+    this.adjacencyList = new Map();
   }
 
   addNode(value) {
-    let new_node = new Node(value);
-    this._adjacencyList[value] = [];
-    return new_node;
+    this.adjacencyList.set(value, []);
+    return this.adjacencyList.get(value);
   }
 
 
   addEdge(startNode, endNode, weight=0) {
-    if ((startNode in this._adjacencyList) && (endNode in this._adjacencyList)){
-      let newEdge = new Edge(startNode, weight);
-      let startNodeAdjacency = this._adjacencyList[startNode];
-      startNodeAdjacency.push(newEdge);
-    }else {
+    if (!this.adjacencyList.get(startNode) || !this.adjacencyList.get(endNode)){
       return 'couldnt find one of your nodes';
     }
+
+    let startEdges = this.adjacencyList.get(startNode);
+    let endEdges = this.adjacencyList.get(endNode);
+
+    this.adjacencyList.set(startEdges.push([endNode, weight]));
+    this.adjacencyList.set(endEdges.push([startNode, weight]));
+
   }
 
   getNeighbors(node) {
-    let neighbors = {};
-    let edgeList = this._adjacencyList[node];
-    console.log(this._adjacencyList);
-    console.log(edgeList);
-
-    for (let i = 0; i < edgeList.length; i++){
-      let edge = edgeList[i];
-
-      neighbors[edge.nodeFrom] = edge.weight;
-    }
-    return neighbors;
+    if (!this.adjacencyList.get(node)) return 'NOT IN GRAPH';
+    return this.adjacencyList.get(node);
   }
 
   getNodes() {
-    return Object.keys(this._adjacencyList);
+    return Array.from(this.adjacencyList.keys());
   }
 
   size() {
-    return Object.keys(this._adjacencyList).length;
+    return this.adjacencyList.size;
   }
 }
 
-module.exports = {
-  Graph: Graph,
-  Node: Node,
-  Edge: Edge
-};
+module.exports = Graph;
