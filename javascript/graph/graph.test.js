@@ -52,5 +52,16 @@ describe('Testing edge creation not present', () => {
 });
 
 
+describe('Testing breadth first traversal', () => {
+  it('should return a list of nodes in breadth first order', () => {
+    let my_graph = new Graph();
+    my_graph.addNode('hi');
+    my_graph.addNode('bye');
+    my_graph.addNode('ok');
+    my_graph.addEdge('hi', 'bye', 50);
+    my_graph.addEdge('hi', 'ok', 25);
+    expect(my_graph.breathFirst()).toEqual([]);
+  });
+});
 
 
