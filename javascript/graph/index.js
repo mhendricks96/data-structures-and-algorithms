@@ -1,5 +1,6 @@
 'use strict';
 const Queue = require('../stacks-and-queues/queue');
+const Stack = require('../stacks-and-queues/stack');
 
 
 class Graph {
@@ -54,7 +55,6 @@ class Graph {
       let currentNeighbors = Array.from(this.getNeighbors(current));
       nodes.push(current);
 
-      // console.log(currentNeighbors);
       for (let i = 0; i < currentNeighbors.length; i++) {
         let neighbor = currentNeighbors[i];
         if (!visited_nodes.includes(neighbor)){
@@ -64,6 +64,32 @@ class Graph {
       }
     }
     return nodes.slice(0,-1);
+  }
+
+  depthFirst(node) {
+    let final_node_list = [];
+    let stack = new Stack();
+    let visited_nodes = [];
+
+    if (!(this.adjacencyList.has(node))) {
+      return 'node not found';
+    }
+
+    stack.push(node);
+
+    while (!(stack.is_empty())){
+      let current = stack.top;
+      if (!(current in visited_nodes)){
+        final_node_list.push(current);
+        visited_nodes.push(current);
+        for (let i = 0; i < this.adjacencyList[current].length; i++) {
+          let neighbor = this.adjacencyList[current][i];
+          stack.push(neighbor);
+        }
+      }
+      stack.pop();
+    }
+    return final_node_list;
   }
 
 }

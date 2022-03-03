@@ -62,4 +62,24 @@ describe('Testing breadth first traversal', () => {
   });
 });
 
+describe('Testing depth first traversal cannot find', () => {
+  it('should return node not found', () => {
+    let my_graph = new Graph();
+    my_graph.addNode('hi');
+    my_graph.addNode('bye');
+    my_graph.addEdge('hi', 'bye', 50);
+    expect(my_graph.depthFirst()).toEqual('node not found');
+  });
+});
+
+describe('Testing depth first traversal', () => {
+  it('should return a list of nodes in depth first order', () => {
+    let my_graph = new Graph();
+    my_graph.addNode('hi');
+    my_graph.addNode('bye');
+    my_graph.addEdge('hi', 'bye', 50);
+    expect(my_graph.breathFirst()).toEqual(['hi',['bye',50]]);
+  });
+});
+
 
